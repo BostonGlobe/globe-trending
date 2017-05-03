@@ -13,19 +13,8 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', './components');
 
-
-// render index
-app.get('/', (req, res) => {
-
-  let indexData = new TransformIndexData(rawIndexData).transform();
-  res.render('index', { data: indexData });
-
-});
-
-// render article
-app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) => {
-
-  let globeURL = 'http://www.bostonglobe.com' + req.url.replace('/article', '') + '.json';
+function displayStory(requestInformation, res) {
+  let globeURL = 'http://www.bostonglobe.com' + requestInformation.url.replace('/article', '') + '.json';
 
   request({'json':true,'uri':globeURL}, (error, response, body) => {
 
@@ -40,7 +29,25 @@ app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) =
       }
 
   });
-  
+}
+
+
+// render index
+app.get('/', (req, res) => {
+
+  let indexData = new TransformIndexData(rawIndexData).transform();
+  res.render('index', { data: indexData });
+
+});
+
+// render article
+app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) => {
+  displayStory(req, res);
+});
+
+// render article
+app.get('/article/:section/:anothersection/:year/:month/:day/:slug/:garbage/story', (req, res) => {
+  displayStory(req, res);
 });
 
 // listen for requests
