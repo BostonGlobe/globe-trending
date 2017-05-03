@@ -5,10 +5,28 @@ module.exports = class TransformArticleData {
   }
 
   transform() {
-    // console.log('data---', this.data);
-    // 
-    //
-    //  
+
+    let recircArray = [];
+
+    this.data.recirc.forEach( function (recirc) {
+      if(recirc.lead && recirc.lead.href && recirc.headlines.headline) {
+
+      let recircPath = recirc.href.replace('http://www.bostonglobe.com', '/article').replace('.html', '');
+
+      let recircObject = {
+        leadImage: {
+          href: recirc.lead.href
+        },
+        headline: recirc.headlines.headline,
+        href: recircPath
+      };
+
+      recircArray.push(recircObject);
+      }
+
+      
+    } );
+    
     
     return {
       headline: this.data.headlines.headline,
@@ -22,7 +40,7 @@ module.exports = class TransformArticleData {
       },
       content: this.data.content,
       tagline: this.data.tagline,
-      recirc: this.data.recirc
+      recirc: recircArray
     };
   }
 

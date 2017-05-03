@@ -25,17 +25,27 @@ html(lang='en')
       div(class='article-header__byline') !{article.author}, #{article.authorType}
     div(class='article-content')
       each val, index in article.content
-        if val.content
-          p= val.content
+        if val.type == 'p'
+          p !{val.content}
+        else if val.type == 'image'
+          figure(class='inline-media inline-media--wide inline-media--bleed')
+            img(
+              src=val.href
+              class='inline-media__image'
+            )
+            figcaption(class='inline-media__info')
+              div(class='inline-media__caption') #{val.caption}
+              div(class='inline-media__credit') #{val.credit}
+        else if val.type == 'subhead'
+          h2(class='article-content__section-heading') #{val.content}
       div(class='article-tagline') !{article.tagline}
     div(class='article-recirc')
       div(class='article-recirc__header')
-        h2(class='article-recirc__heading') #{'Related'}
-        ul(class='article-recirc__list')
-          each val, index in article.recirc
-            if (index<3)
-              li(class='article-recirc__item')
-                h3(class='article-recirc__headline') !{'TODO: Headline'}
-    script
-      | let dataString = !{JSON.stringify(article)};
-      | console.log(dataString);
+        h2(class='article-recirc__heading') #{'Continue Reading'}
+      ul(class='article-recirc__list')
+        each val, index in article.recirc
+          if (index<3)
+            li(class='article-recirc__item')
+              a(href=val.href)
+                img(src=val.leadImage.href)
+                h3(class='article-recirc__headline') !{val.headline}
