@@ -17,10 +17,13 @@ module.exports = class TransformData {
       authorType: this.data.attribution.authorType, // TODO: Handle more than one author
       leadImage: {
         href: this.data.lead.href, // TODO: Verify that this is an image
+        caption: this.data.lead.caption,
+        credit: this.data.lead.credit,
         alt: this.data.lead.alt
       },
       content: this.data.content,
-      tagline: 'Author tagline here'
+      tagline: this.data.tagline,
+      recirc: this.data.recirc
     };
   }
 
