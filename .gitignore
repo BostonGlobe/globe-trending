@@ -2,4 +2,5 @@
 *.sass-cache
 /dist
 /node_modules
+/data/chartbeat.json
 npm-debug.log
