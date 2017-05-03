@@ -26,7 +26,7 @@ html(lang='en')
     div(class='article-content')
       each val, index in article.content
         if val.type == 'p'
-          p= val.content
+          p !{val.content}
         else if val.type == 'image'
           figure(class='inline-media inline-media--wide inline-media--bleed')
             img(
