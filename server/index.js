@@ -2,7 +2,8 @@
 const express = require('express');
 const TransformData = require('./TransformData.js');
 const data = require('../data/article.json');
-const indexData = require('../data/index.json');
+const TransformIndexData = require('./TransformIndexData.js');
+const rawIndexData = require('../data/index.json');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.set('views', './components');
 // render index
 app.get('/', (req, res) => {
 
+  let indexData = new TransformIndexData(rawIndexData).transform();
   res.render('index', { data: indexData });
 
 });
