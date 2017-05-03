@@ -4,6 +4,7 @@ const TransformData = require('./TransformData.js');
 const data = require('../data/article.json');
 const TransformIndexData = require('./TransformIndexData.js');
 const rawIndexData = require('../data/index.json');
+const request = require('request');
 
 const app = express();
 
@@ -22,11 +23,19 @@ app.get('/', (req, res) => {
 
 });
 
-// render index
-app.get('/article/*', (req, res) => {
-  console.log(req);
-  let articleData = new TransformData(data).transform();
-  res.render('article', { article: articleData });
+// render article
+app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) => {
+  let globeURL = 'http://www.bostonglobe.com' + req.url.replace('/article', '') + '.json';
+
+  request({'json':true,'uri':globeURL}, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        let articleData = new TransformData(body).transform();
+        res.render('article', { article: articleData });
+      } else {
+        // IDK, maybe render a 404 or something?
+      }
+  });
+  
 });
 
 // listen for requests
