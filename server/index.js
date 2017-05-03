@@ -4,6 +4,7 @@ const rawIndexData = require('../data/index.json');
 const TransformIndexData = require('./TransformIndexData.js');
 const rawArticleData = require('../data/article.json');
 const TransformArticleData = require('./TransformArticleData.js');
+const rawChartbeatData = require('../data/chartbeat.json');
 
 const app = express();
 
@@ -17,8 +18,8 @@ app.set('views', './components');
 // render index
 app.get('/', (req, res) => {
 
-  let indexData = new TransformIndexData(rawIndexData).transform();
-  res.render('index', { data: indexData });
+  let indexData = new TransformIndexData(rawIndexData, rawChartbeatData).transform();
+  res.render('index', { data: indexData, chartbeat: rawChartbeatData });
 
 });
 
@@ -27,7 +28,7 @@ app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) =
 
   let globeURL = 'http://www.bostonglobe.com' + req.url.replace('/article', '') + '.json';
 
-  request({'json':true,'uri':globeURL}, (error, response, body) => {
+  request({'json': true, 'uri': globeURL}, (error, response, body) => {
 
       if (!error && response.statusCode == 200) {
 
