@@ -1,0 +1,127 @@
+/**
+ * Site Footer - Footer used across the site
+ */
+
+$module-name: 'site-footer';
+
+.#{$module-name} {
+	@include container; // Provide a parent context for grid columns width.
+	// This padding assures that the meter doesn't overlap the copyright.
+	padding-bottom: spacer(px, xx-large);
+	padding-bottom: spacer(rem, xx-large);
+
+	&__content {
+		width: 100%;
+		@include gutter($article-side-padding);
+		@include font-scale('benton-sans', base);
+	}
+
+	&__list {
+		width: 100%;
+	}
+
+	&__list-item {
+		padding: spacer(px, small) spacer(px);
+		padding: spacer(rem, small) spacer(rem);
+		border-bottom: 1px solid $light-gray;
+
+		&:last-child, &:first-child {
+			border-bottom: none;
+		}
+
+		&:first-child {
+			padding: 0;
+		}
+	}
+
+	&__heading {
+		padding: spacer(px);
+		padding: spacer(rem);
+		background: $x-light-gray;
+		@include font-scale('benton-sans-bold', x-small);
+	}
+
+	&__link {
+		@include link-states($dark-gray, $black, $black, $dark-gray, false)
+	}
+
+	&__copyright {
+		width: 100%;
+		clear: both;
+		padding-top: spacer(px);
+		padding-top: spacer(rem);
+		border-top: 1px solid $light-gray;
+		color: $dark-gray;
+		text-align: center;
+		@include font-scale('benton-sans', x-small);
+	}
+}
+
+@include media-query(small) {
+	.#{$module-name} {
+		&__content {
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 4px;
+				margin-bottom: spacer(px, mid);
+				margin-bottom: spacer(rem, mid);
+				background: $light-gray;
+			}
+		}
+
+		&__list {
+			@include span(6 of 12);
+			margin-bottom: spacer(px, mid);
+			margin-bottom: spacer(rem, mid);
+
+			&:nth-child(odd) {
+				padding-left: 0;
+			}
+		}
+
+		&__heading {
+			padding: 0 0 spacer(px, small) 0;
+			padding: 0 0 spacer(rem, small) 0;
+			background: none;
+		}
+
+		&__list-item {
+			padding: 0 0 spacer(px, small) 0;
+			padding: 0 0 spacer(rem, small) 0;
+			border-bottom: none;
+
+			&:first-child {
+				padding: 0 0 spacer(px, small) 0;
+			}
+		}
+	}
+}
+
+@include media-query(mid) {
+	.#{$module-name} {
+		// This padding assures that the meter doesn't overlap the copyright.
+		padding-bottom: spacer(px, 50);
+		padding-bottom: spacer(rem, 50);
+
+		&__content {
+			@include span(10 of 12);
+			@include push(1);
+			@include font-scale('benton-sans', x-small);
+		}
+
+	}
+}
+
+@include media-query(large) {
+	.#{$module-name} {
+		&__list {
+			@include span(3 of 12);
+
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+	}
+}

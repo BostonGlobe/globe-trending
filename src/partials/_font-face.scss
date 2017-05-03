@@ -1,0 +1,38 @@
+// *
+// * Font Face Rules
+// *
+// * IMPORTANT: When you add a font here, you also have to add it to src/scripts/load-fonts.js
+// * This will add an associated class name to be added to the body when this font is loaded.
+// * This will be read by the font-scale mixin (in helpers/_font-sizing.scss) and the font will
+// * be applied when it is downloaded.
+// *
+
+@font-face {
+  font-family: "Miller Headline Roman";
+  src: url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot") format("eot");
+  src: url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot?iefix") format("eot"),
+    url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-3.woff") format("woff"),
+    url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-1.ttf") format("truetype"),
+    url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-4.svg") format("svg");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Benton Sans";
+  src:
+    url("/font/BentonSansRegular/BentonSansRegular.eot") format("eot"),
+    url("/font/BentonSansRegular/BentonSansRegular.eot?iefix") format("eot"),
+    url("/font/BentonSansRegular/BentonSansRegular.woff") format("woff"),
+    url("/font/BentonSansRegular/BentonSansRegular.woff2") format("woff2"),
+    url("/font/BentonSansRegular/BentonSansRegular.ttf") format("truetype"),
+    url("/font/BentonSansRegular/BentonSansRegular.svg") format("svg");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Benton Sans Bold';
+  src:
+    url('/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-3.woff') format('woff'),
+    url('/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-1.woff2') format('woff2');
+  font-weight: 800;
+}

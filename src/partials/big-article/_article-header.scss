@@ -1,0 +1,93 @@
+/**
+ * Module Name: Article Content
+ */
+
+$module-name: 'article-header';
+
+.#{$module-name} {
+	@include span(full break);
+	@include gutter($article-side-padding);
+	margin: spacer(px, 50) 0 spacer(px, large);
+	margin: spacer(rem, 50) 0 spacer(rem, large);
+
+	&__overline {
+    text-align: center;
+    @include font-scale('benton-sans', x-small);
+    color: $red;
+    text-transform: uppercase;
+	}
+
+	&__headline {
+    margin-bottom: spacer(px);
+    margin-bottom: spacer(rem);
+		text-align: center;
+		color: $black;
+		@include font-scale('miller-headline', large);
+	}
+
+	&__subheadline {
+		margin-bottom: spacer(px, large);
+    margin-bottom: spacer(rem, large);
+		text-align: center;
+		color: $dark-gray;
+		@include font-scale('miller-headline', mid);
+	}
+
+	&__byline {
+		color: $dark-gray;
+		text-align: center;
+		@include font-scale('benton-sans', small);
+
+		&-link {
+	  	@include link-states($steelblue);
+      @include font-scale('benton-sans-bold', small);
+		}
+
+		&-role {
+			margin-right: spacer(px, small);
+			margin-right: spacer(rem, small);
+			margin-bottom: 10px;
+			color: $dark-gray;
+		}
+	}
+
+	&__pubdate {
+    @include font-scale('benton-sans-bold', small);
+		display: block;
+		margin-top: spacer(px, base);
+		margin-top: spacer(rem, base);
+	}
+}
+
+
+@include media-query(mid) {
+	.#{$module-name} {
+		@include span(10 of 12);
+		@include push(1);
+		margin-top: spacer(px, 70);
+		margin-top: spacer(rem, 70);
+		margin-bottom: spacer(px, 40);
+		margin-bottom: spacer(rem, 40);
+
+		&__headline {
+			@include font-scale('miller-headline', x-large);
+   	}
+
+		&__subheadline {
+			margin-bottom: spacer(px, x-large);
+	    margin-bottom: spacer(rem, x-large);
+		}
+
+		&__pubdate {
+			display: initial;
+			margin: 0;
+		}
+	}
+}
+
+@include media-query(x-large) {
+	.#{$module-name} {
+		@include span(8 of 12);
+		@include push(2);
+	}
+}

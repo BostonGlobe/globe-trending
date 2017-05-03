@@ -1,0 +1,301 @@
+***************
+*** 0 ****
+--- 1,298 ----
++ // *
++ // * Inline newsletter form. Originally taken from BG Classic
++ // @see eomdb/SysConfig/WebPortal/BostonGlobe/Framework/styles/_base/_inlineNewsletter.scss
++ // * Also @see bglobe-js/styles/_modules/_articlePage/_inline-newsletter.scss
++ 
++ $inlineNewsletter: 'inline-newsletter';
++ 
++ //colors 
++ $newsletterBlue: #1687ab;
++ $white: #FFFFFF;
++ $newsletterGrey--light: #eeeeee;
++ $newsletterGrey: #cccccc;
++ $newsletterGrey--dark: #333;
++ 
++ $errorText: #9B1518;
++ 
++ //fonts
++ $bentonBold: "Benton Sans Bold", Georgia, sans-serif;
++ $bentonRegular: "BentonSansRegular", Georgia, sans-serif;
++ 
++ //sizing
++ $blockHeight: 40px;
++ $textSize--large: 16px;
++ $textSize: 15px;
++ $textSize--mobile: 12px;
++ $textSize--small: 11px;
++ 
++ .#{$inlineNewsletter} {
++ 
++ 	background-color: $newsletterGrey--light;
++ 	border-top: 4px solid $newsletterGrey;
++ 	margin-bottom: 20px;
++ 	font-family: $bentonRegular;
++ 	font-size: $textSize--large;
++ 	min-height: 80px;
++ 	clear: both;
++ 	padding: 10px 20px;
++ 	display: flex;
++ 	flex-wrap: wrap;
++ 
++ 	&__copy {
++ 		max-width: 305px;
++ 		margin: auto 0;
++ 		display: inline-block;
++ 		flex: 1;
++ 	}
++ 
++ 	&__error-text {
++ 		display: none;
++ 		width: 100%;
++ 		margin-left: 10px;
++ 		height: 20px;
++ 		color: $errorText;
++ 		font-size: $textSize--small;
++ 		font-weight: bold;
++ 	}
++ 
++ 	&__network-error {
++ 		display: none;
++ 		flex: 100%;
++ 		p {
++ 			font-size: $textSize;
++ 			br {
++ 				// Fix the `display: none` property that is applied on mobile.
++ 				display: default;
++ 			}
++ 		}
++ 		&:before {
++ 			// Alert Icon
++ 			display: block;
++ 			content: '';
++ 			height: 40px;
++ 			width: 40px;
++ 			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAyMCAyMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8dGl0bGU+QWxlcnQgSWNvbjwvdGl0bGU+DQogICAgPGRlc2M+PC9kZXNjPg0KICAgIDxkZWZzPjwvZGVmcz4NCiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgaWQ9IkFydGJvYXJkIj4NCiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0xNi1Db3B5Ij4NCiAgICAgICAgICAgICAgICA8ZyBpZD0iR3JvdXAiPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNy41NDQ5MDQ3NSwxLjgxMjc1ODA0IEM4LjYyOTk3MjExLDAuMTQ2Mjc1MjY4IDEwLjM4NDkyMTgsMC4xMzk2ODMzNiAxMS40NzQyODEzLDEuODEyNzU4MDQgTDE4LjAyMjkzNTMsMTEuODcwNDAwMiBDMTkuMTA4MDAyNywxMy41MzY4ODMgMTguMzc4MDMzMSwxNC44ODc4MzQyIDE2LjM4NTE0ODIsMTQuODg3ODM0MiBMMi42MzQwMzc3NiwxNC44ODc4MzQyIEMwLjY0NDQ0NTU2LDE0Ljg4NzgzNDIgLTAuMDkzMTA4NzcxMSwxMy41NDM0NzQ5IDAuOTk2MjUwNjYzLDExLjg3MDQwMDIgTDcuNTQ0OTA0NzUsMS44MTI3NTgwNCBaIiBpZD0iVHJpYW5nbGUtMSIgZmlsbD0iIzlCMTUxOCI+PC9wYXRoPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOC40NDg2NjY2Nyw0LjYxMTI5MzcxIEwxMC40NSw0LjYxMTI5MzcxIEwxMC4zNzQsMTAuMTM0MDIxIEw4LjUyNDY2NjY3LDEwLjEzNDAyMSBMOC40NDg2NjY2Nyw0LjYxMTI5MzcxIFogTTguNDQ4NjY2NjcsMTAuOTA3MjAyOCBMMTAuNDM3MzMzMywxMC45MDcyMDI4IEwxMC40MzczMzMzLDEyLjc5NzIwMjggTDguNDQ4NjY2NjcsMTIuNzk3MjAyOCBMOC40NDg2NjY2NywxMC45MDcyMDI4IFoiIGlkPSIhIiBmaWxsPSIjRkZGRkZGIj48L3BhdGg+DQogICAgICAgICAgICAgICAgPC9nPg0KICAgICAgICAgICAgPC9nPg0KICAgICAgICA8L2c+DQogICAgPC9nPg0KPC9zdmc+');
++ 			background-size: contain;
++ 			margin: auto;
++ 		}
++ 	}
++ 
++ 	&__description {
++ 		margin-top:3px;
++ 		font-size: $textSize--small;
++ 		line-height: $textSize--large;
++ 		color: $newsletterGrey--dark;
++ 	}
++ 
++ 	&__content {
++ 		display: flex;
++ 		margin: auto 0;
++ 		flex-wrap: wrap;
++ 		flex: 2;
++ 	}
++ 
++ 
++ 	&__button {
++ 		// TODO: font is missing on mobile. Why? Seems like it's always been this way.
++ 		margin-left: 10px;
++ 		border: 0px solid;
++ 		border-radius: 3px;
++ 		display: inline-block;
++ 		box-sizing: border-box;
++ 		min-width: 90px;
++ 		height: $blockHeight;
++ 		background-color: $newsletterBlue;
++ 		color: $white;
++ 		font-size: $textSize;
++ 		font-family: $bentonBold;
++ 		cursor: pointer;
++ 		transition: opacity 0.35s ease-in-out;
++ 
++ 		&:hover {
++ 			opacity: .8;
++ 		}
++ 
++ 		&:disabled {
++ 			opacity: .2;
++ 		}
++ 	}
++ 
++ 	&__button-container {
++ 		position: relative;
++ 		width: 100px;
++ 	}
++ 
++ 	&__input {
++ 		flex:1;
++ 		margin-left: 10px;
++ 		border-radius: 3px;
++ 		padding-left: 10px;
++ 		border: 1px solid $newsletterGrey;
++ 		height: $blockHeight;
++ 		box-sizing: border-box;
++ 		font-size: $textSize;
++ 		width: 320px;
++ 		min-width:200px;
++ 		&--error {
++ 			border: 2px solid $errorText;
++ 			margin-bottom: 20px;
++ 		}
++ 	}
++ 
++ 	&__bold {
++ 		font-family: $bentonBold;
++ 	}
++ 
++ 	&__link {
++ 		color: $newsletterBlue;
++ 		font-family: $bentonBold;
++ 		text-decoration: none;
++ 		cursor: pointer;
++ 		border-bottom: 1px solid rgba(22, 135, 171, 1);
++ 		border-bottom: 1px solid rgba(22, 135, 171, 0.5);
++  
++ 		&:visited {
++ 			color: $newsletterBlue;
++ 		}
++ 
++ 		&:hover {
++ 			border-bottom: 1px solid rgba(22, 135, 171, 1);
++ 		}
++ 	}
++ 
++ 	&__thanks {
++ 		display: none;
++ 		line-height: 42px;
++ 		text-align: center;
++ 		margin-top: 10px;
++ 		flex: 1;
++ 	}
++ 
++ 	&__spinner {
++ 		display: none;
++ 		height: 20px;
++ 		width: 20px;
++ 		margin: 0 auto 0 auto;
++ 		-webkit-animation: rotation .6s infinite linear;
++ 		-moz-animation: rotation .6s infinite linear;
++ 		-o-animation: rotation .6s infinite linear;
++ 		animation: rotation .6s infinite linear;
++ 		border-left: 4px solid rgba(0, 0, 0, 0.45);
++ 		border-right: 4px solid rgba(0, 0, 0, 0.45);
++ 		border-bottom: 4px solid rgba(0, 0, 0, 0.45);
++ 		border-top: 4px solid rgba(0, 0, 0, 0.85);
++ 		border-radius: 100%;
++ 		top: 10px;
++ 		right: 35px;
++ 		position: absolute;
++ 		margin-left: -10px
++ 	}
++ 
++ 	@-webkit-keyframes rotation {
++ 	  from {
++ 	    -webkit-transform: rotate(0deg);
++ 	  }
++ 	  to {
++ 	    -webkit-transform: rotate(359deg);
++ 	  }
++ 	}
++ 	@-moz-keyframes rotation {
++ 	  from {
++ 	    -moz-transform: rotate(0deg);
++ 	  }
++ 	  to {
++ 	    -moz-transform: rotate(359deg);
++ 	  }
++ 	}
++ 	@-o-keyframes rotation {
++ 	  from {
++ 	    -o-transform: rotate(0deg);
++ 	  }
++ 	  to {
++ 	    -o-transform: rotate(359deg);
++ 	  }
++ 	}
++ 	@keyframes rotation {
++ 	  from {
++ 	    transform: rotate(0deg);
++ 	  }
++ 	  to {
++ 	    transform: rotate(359deg);
++ 	  }
++ 	}
++ 
++ }
++ 
++ // Single column mobile display
++ @media (max-width: 640px) {
++ 
++ 	.#{$inlineNewsletter} {
++ 
++ 		height: auto;
++ 		padding: 15px 15px 1px 15px;
++ 		flex-direction: column;
++ 
++ 		&__content {
++ 			margin: 0;
++ 			width: auto;
++ 			display: block;
++ 		}
++ 
++ 		&__copy {
++ 			line-height: initial;
++ 		}
++ 
++ 		&__title {
++ 			font-size: $textSize;
++ 		}
++ 		&__description {
++ 			font-size: $textSize--mobile;
++ 		} 
++ 
++ 		&__input,
++ 		&__button {
++ 			height: 50px;
++ 		}
++ 
++ 		&__copy,
++ 		&__input,
++ 		&__button {
++ 			display:block;
++ 			box-sizing:border-box;
++ 			width: 100%;
++ 			max-width: 100%;
++ 			margin: 0 auto 15px;
++ 		}
++ 
++ 		&__spinner {
++ 			height: 30px;
++ 			width: 30px;
++ 			// Horizontally center the button over the button
++ 			left: 50%;
++ 			margin-left: -15px;
++ 		}
++ 
++ 		&__button-container {
++ 			position: relative;
++ 			width: 100%;
++ 		}
++ 		&__input {
++ 			margin-bottom: 5px;
++ 		}
++ 
++ 		&__thanks {
++ 			line-height: 28px;
++ 			margin-bottom: 30px;
++ 		}
++ 
++ 		&__error-text {
++ 			// Add 2px margin to account for lining up with the input error border
++ 			margin: 0 2px;
++ 		}
++ 
++ 		&__link {
++ 			display: inline-block;
++ 			line-height: 20px;
++ 		}
++ 	}
++ }

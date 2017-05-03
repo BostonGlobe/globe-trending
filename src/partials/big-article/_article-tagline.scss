@@ -1,0 +1,25 @@
+/**
+ * Module Name: Author tagline at the end article content
+ */
+
+$module-name: 'article-tagline';
+
+.#{$module-name} {
+	margin: 40px auto 0;
+	text-align: center;
+	color: $dark-gray;
+
+	p {
+    @include font-scale('benton-sans', small);
+  }
+
+	&:before {
+		content: '';
+		display: block;
+		margin: 0 auto spacer(px, large);
+		margin: 0 auto spacer(rem, large);
+		height: 3px;
+		width: 50px;
+		background-color: $light-gray;
+	}
+}

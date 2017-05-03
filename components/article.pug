@@ -10,17 +10,33 @@ html(lang='en')
     style
       include ./index.css
   body
-    h1 #{article.headline}
-    div !{article.author}, #{article.authorType}
-    div
+    header(class='site-header')
+      div #{'Boston Globe'}
+    figure(class='lead-media')
       img(
         src= article.leadImage.href
         alt= article.leadImage.alt
+        class='lead-media__media'
       )
-    div
-    each val, index in {1:'one',2:'two',3:'three'}
-      p= val
-    div !{article.tagline}
+      figcaption(class='lead-media__info')
+        div(class='lead-media__caption') #{article.leadImage.caption}
+        div(class='lead-media__credit') #{article.leadImage.credit}
+    div(class='article-header')
+      h1(class='article-header__headline') #{article.headline}
+      div(class='article-header__byline') !{article.author}, #{article.authorType}
+    div(class='article-content')
+      each val, index in article.content
+        if val.content
+          p= val.content
+      div(class='article-tagline') !{article.tagline}
+    div(class='article-recirc')
+      div(class='article-recirc__header')
+        h2(class='article-recirc__heading') #{'Related'}
+        ul(class='article-recirc__list')
+          each val, index in article.recirc
+            if (index<3)
+              li(class='article-recirc__item')
+                h3(class='article-recirc__headline') !{'TODO: Headline'}
     script
       | let dataString = !{JSON.stringify(article)};
       | console.log(dataString);

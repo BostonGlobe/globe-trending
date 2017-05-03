@@ -1,0 +1,41 @@
+// *
+// * BostonGlobe.com bg-screen.scss
+// * Brings in all partials to generate a single CSS file
+// * This file should only contain @import rules
+// * Dependencies should be listed
+// *
+
+// Base styles.
+@import 'partials/base';
+
+// Element reset.
+@import 'partials/reset';
+
+// Font faces.
+@import 'partials/font-face';
+
+// Element defaults.
+@import 'partials/element-defaults';
+
+// Susy grid config.
+@import 'partials/grid-config';
+
+// Big article site module styles.
+@import 'partials/site/site-header';
+// @import 'partials/site/site-footer';
+@import 'partials/big-article/social-tools';
+
+// Article body content.
+@import 'partials/big-article/big-article';
+@import 'partials/big-article/article-lead-media';
+@import 'partials/big-article/article-header';
+@import 'partials/big-article/article-content';
+@import 'partials/big-article/article-inline-media';
+@import 'partials/big-article/article-tagline';
+@import 'partials/big-article/article-inline-newsletter';
+
+// Article Recirc
+@import 'partials/big-article/article-recirc';
+
+// Modules
+@import 'partials/modules/subscription-banner';

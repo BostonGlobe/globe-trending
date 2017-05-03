@@ -1,0 +1,26 @@
+/**
+ * Module Name: Social Tools - Big Article Header social tools.
+ */
+
+$module-name: 'social-tools';
+
+.#{$module-name} {
+	float: right;
+
+	&__list-item {
+		display: inline-block;
+		margin: 0 spacer(px);
+		margin: 0 spacer(rem);
+	}
+
+	svg {
+		fill: $white;
+		transition-property: fill;
+		transition-duration: 0.2s;
+		transition-timing-function: cubic-bezier(0.49, 0.37, 0.445, 0.715);
+
+		&:hover {
+			fill: darken($white, 20%);
+		}
+	}
+}

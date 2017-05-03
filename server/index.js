@@ -13,6 +13,7 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', './components');
 
+
 // render index
 app.get('/', (req, res) => {
 
