@@ -2,6 +2,7 @@
 const express = require('express');
 const TransformData = require('./TransformData.js');
 const data = require('../data/article.json');
+const indexData = require('../data/index.json');
 
 const app = express();
 
@@ -14,19 +15,8 @@ app.set('views', './components');
 // render index
 app.get('/', (req, res) => {
 
+  res.render('index', { data: indexData });
 
-  // articleContent = '';
-  // for (let i = 0; i < articleData.content.length; i++) {
-  //   articleContent += '<' + articleData.content[i].type + '>';
-  //   articleContent += articleData.content[i].content;
-  //   articleContent += '</' + articleData.content[i].type + '>';
-  // }
-
-  // articleData.transformedContent = articleContent;
-
-  // let articleData = new TransformData(data).transform();
-
-  res.render('index', { article: data });
 });
 
 // render index
