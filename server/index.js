@@ -4,6 +4,7 @@ const rawIndexData = require('../data/index.json');
 const TransformIndexData = require('./TransformIndexData.js');
 const rawArticleData = require('../data/article.json');
 const TransformArticleData = require('./TransformArticleData.js');
+const rawChartbeatData = require('../data/chartbeat.json');
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.set('views', './components');
 function displayStory(requestInformation, res) {
   let globeURL = 'http://www.bostonglobe.com' + requestInformation.url.replace('/article', '') + '.json';
 
-  request({'json':true,'uri':globeURL}, (error, response, body) => {
+  request({'json': true, 'uri': globeURL}, (error, response, body) => {
 
       if (!error && response.statusCode == 200) {
 
