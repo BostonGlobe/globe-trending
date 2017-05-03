@@ -41,12 +41,11 @@ html(lang='en')
       div(class='article-tagline') !{article.tagline}
     div(class='article-recirc')
       div(class='article-recirc__header')
-        h2(class='article-recirc__heading') #{'Related'}
-        ul(class='article-recirc__list')
-          each val, index in article.recirc
-            if (index<3)
-              li(class='article-recirc__item')
-                h3(class='article-recirc__headline') !{'TODO: Headline'}
-    script
-      | let dataString = !{JSON.stringify(article)};
-      | console.log(dataString);
+        h2(class='article-recirc__heading') #{'Continue Reading'}
+      ul(class='article-recirc__list')
+        each val, index in article.recirc
+          if (index<3)
+            li(class='article-recirc__item')
+              a(href=val.href)
+                img(src=val.leadImage.href)
+                h3(class='article-recirc__headline') !{val.headline}
