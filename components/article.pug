@@ -36,6 +36,8 @@ html(lang='en')
             figcaption(class='inline-media__info')
               div(class='inline-media__caption') #{val.caption}
               div(class='inline-media__credit') #{val.credit}
+        else if val.type == 'subhead'
+          h2(class='article-content__section-heading') #{val.content}
       div(class='article-tagline') !{article.tagline}
     div(class='article-recirc')
       div(class='article-recirc__header')
