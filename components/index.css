@@ -131,9 +131,9 @@ pre {
   padding: 10px;
   background-color: #000000;
   overflow: auto;
-  z-index: 300; }
+  z-index: 300;
+  text-align: center; }
   .site-header .bg-logo {
-    float: left;
     fill: #ffffff;
     transition-property: fill;
     transition-duration: 0.2s;

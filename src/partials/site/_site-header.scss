@@ -14,9 +14,10 @@ $module-name: 'site-header';
 	background-color: $black;
 	overflow: auto;
 	z-index: z-index(attic);
+	text-align: center;
 
 	.bg-logo {
-		float: left;
+		// float: left;
 		fill: $white;
 		transition-property: fill;
 		transition-duration: 0.2s;

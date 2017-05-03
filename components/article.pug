@@ -10,8 +10,7 @@ html(lang='en')
     style
       include ./index.css
   body
-    header(class='site-header')
-      div #{'Boston Globe'}
+    include ./header.pug
     figure(class='lead-media')
       img(
         src= article.leadImage.href

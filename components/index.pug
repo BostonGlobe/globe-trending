@@ -10,17 +10,20 @@ html(lang='en')
     style
       include ./index.css
   body
+
+    include ./header.pug
+
     h1 Globe Trending
 
     ul
       each article in data
         li 
           a( href=article.path )
-            h2 #{article.title}
             img(
               src= article.image
               alt= article.title
             )
+            h2 #{article.title}
 
     script
       | let dataString = !{JSON.stringify(data)};
