@@ -36,7 +36,7 @@ function displayStory(requestInformation, res) {
 // render index
 app.get('/', (req, res) => {
 
-  let indexData = new TransformIndexData(rawIndexData).transform();
+  let indexData = new TransformIndexData(rawIndexData, rawChartbeatData).transform();
   res.render('index', { data: indexData });
 
 });
