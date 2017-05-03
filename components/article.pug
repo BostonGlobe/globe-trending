@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(
+      name='viewport'
+      content='width=device-width, initial-scale=1'
+    )
+    title= article.headline
+    style
+      include ./index.css
+  body
+    h1 #{article.headline}
+    div !{article.author}, #{article.authorType}
+    div
+      img(
+        src= article.leadImage.href
+        alt= article.leadImage.alt
+      )
+    div
+    each val, index in {1:'one',2:'two',3:'three'}
+      p= val
+    div !{article.tagline}
+    script
+      | let dataString = !{JSON.stringify(article)};
+      | console.log(dataString);
