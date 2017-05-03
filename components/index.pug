@@ -17,7 +17,7 @@ html(lang='en')
 
     ul
       each article in data
-        li 
+        li(class='trending-' + article.trend)
           a( href=article.path )
             img(
               src= article.image
