@@ -30,6 +30,8 @@ html(lang='en')
                     class= 'trending__image'
                   )
               h2(class= 'trending__title') #{article.title}
+              if article.hotRef
+                div(class='trending__popular-on') Popular #{article.hotRef}
 
     script
       | let dataString = !{JSON.stringify(data)};

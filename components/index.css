@@ -984,18 +984,8 @@ pre {
       height: 410px; }
     .trending-2, .trending-3 {
       height: 410px; }
-      .trending-2 .trending__heading, .trending-3 .trending__heading {
-        font-size: 31.5pt;
-        font-size: 2.625rem;
-        font-family: Georgia, Times, "Times New Roman", serif;
-        line-height: 1.4; }
-        .miller-headline-loaded .trending-2 .trending__heading, .miller-headline-loaded .trending-3 .trending__heading {
-          font-family: "Miller Headline Roman", Georgia, Times, "Times New Roman", serif; }
     .trending-section {
       max-width: 1000px;
-      margin: auto; }
-    .trending__title {
-      position: absolute;
-      bottom: 0px; } }
+      margin: auto; } }
 
 /*# sourceMappingURL=index.css.map */
