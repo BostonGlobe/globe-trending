@@ -1,0 +1,131 @@
+/**
+ * Module Name: Recirculation module for Big Article.
+ */
+
+$module-name: 'article-recirc';
+
+.#{$module-name} {
+	@include span(full break);
+	@include gutter($article-side-padding);
+	margin: 40px 0;
+	margin: 40px 0;
+
+	&__header {
+		position: relative;
+		text-align: center;
+
+		&:after {
+			content: "";
+			height: 1px;
+			width: 100%;
+			position: absolute;
+			top: 29%;
+			left: 0;
+			z-index: z-index(basement);
+			background: $light-gray;
+		}
+	}
+
+	&__heading {
+		display: inline-block;
+		padding: 0 spacer(px, large);
+		padding: 0 spacer(rem, large);
+		margin-bottom: spacer(px, large);
+		margin-bottom: spacer(rem, large);
+		background: $white;
+		@include font-scale('benton-sans-bold');
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__item {
+		width: 100%;
+		margin-bottom: spacer(px, x-large);
+		margin-bottom: spacer(rem, x-large);
+	}
+
+	a {
+		text-decoration: none;
+		@include link-states($dark-gray, $black, $black, $black, false);
+	}
+
+	&__image {
+		width: 100%;
+		margin-bottom: spacer(px, small);
+		margin-bottom: spacer(rem, small);
+	}
+
+	&__headline {
+		@include font-scale('miller-headline', mid);
+	}
+}
+
+@include media-query(small) {
+	.#{$module-name} {
+		&__image {
+			width: 30%;
+			float: left;
+			margin-right: spacer(px, large);
+			margin-right: spacer(rem, large);
+		}
+
+		&__headline {
+			@include font-scale('miller-headline');
+		}
+	}
+}
+
+@include media-query(mid) {
+	.#{$module-name} {
+		@include span(10 of 12);
+		@include push(1);
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+}
+
+@include media-query(large) {
+	.#{$module-name} {
+
+		&__header:after {
+			width: 80%;
+			right: 0;
+			margin: 0 auto;
+		}
+
+		&__list {
+			flex-wrap: nowrap;
+		}
+
+		&__item {
+			max-width: 32%; // Necessary for flex-box `justify-content: space-between;`
+		}
+
+		&__image {
+			float: none;
+			width: 100%;
+			margin-right: 0;
+		}
+
+		&__headline {
+			line-height: 24px;
+		}
+	}
+}
+
+@include media-query(x-large) {
+	.#{$module-name} {
+		@include span(8 of 12);
+		@include push(2);
+		margin-top: 40px;
+		margin-bottom: 40px;
+
+		&__header:after {
+			width: 75%;
+		}
+	}
+}

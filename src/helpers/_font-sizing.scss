@@ -1,0 +1,124 @@
+// Font Sizing ////////////////////////////////////////////////////////////////
+
+
+// FOR: Managing Boston.com font sizes
+// WHY: A set list of named font sizes with predetermined measures and line
+//      height ratios aids in uniformity and maintainability, makes later
+//      component typesetting decisions easier.
+// NOTES: - Avoid drift from semantic variable names (i.e. "$modal-title")
+//        - Use rems for easily scaling responsive type. Make sure there's a pt
+//          fallback for browsers that don't support it (pts are more
+//          accessible than px)
+//        - Line-height ratios are purposely kept unitless to scale with page
+//          zoom
+// SEE: http://erskinedesign.com/blog/setting-typographic-scale-with-sass-maps/
+// USE: `@include font-scale('miller-banner', x-large);`
+
+
+// Variables ==================================================================
+
+// Font Fallbacks
+$font-default--sans-serif: 'Helvetica, Arial, sans-serif';
+$font-default--serif: 'Georgia, Times, "Times New Roman", serif';
+// Font Maps =======================================================================
+
+// Maps a font to its font-face and fallback font.
+$fonts-map: (
+    benton-sans: (
+        family: ("Benton Sans", #{$font-default--sans-serif}),
+        fallback: #{$font-default--sans-serif},
+    ),
+    benton-sans-bold: (
+        family: ("Benton Sans Bold", #{$font-default--sans-serif}),
+        fallback: #{$font-default--sans-serif}
+    ),
+    miller-headline: (
+        family: ("Miller Headline Roman", #{$font-default--serif}),
+        fallback: #{$font-default--serif}
+    ),
+    georgia: (
+        family: #{$font-default--serif},
+        fallback: #{$font-default--serif}
+    ),
+    helvetica: (
+        family: #{$font-default--sans-serif},
+        fallback: #{$font-default--sans-serif}
+    )
+);
+
+// Maps the `$font-size` passed to `font-scale()` to its assoc. CSS attributes.
+$font-size-map: (
+    x-small: (
+        font-size: 0.75,        // 12px
+        line-height: 1.4
+    ),
+    small: (
+        font-size: 0.9375,      // 15px
+        line-height: 1.8
+    ),
+    base: (
+        font-size: 1.125,       // 18px
+        line-height: 1.8
+    ),
+    mid: (
+        font-size: 1.75,        // 28px
+        line-height: 1.4
+    ),
+    large: (
+        font-size: 2.625,       // 42px
+        line-height: 1.4
+    ),
+    x-large: (
+        font-size: 4.25,        // 68px
+        line-height: 1.2
+    )
+);
+
+// Functions ==================================================================
+
+// fontset-feature ------------------------------------------------------------
+// Pulls information from the map above. Called by other functions. The
+// `$feature` can be any key from the Sass list such as `line-height` or
+// `font-size`.
+@function _fontset-feature($feature, $set: 'base'){
+    $result: map-get(map-get($font-size-map, $set), $feature);
+    @return ($result);
+}
+
+// calc-font-size -------------------------------------------------------------
+@function calc-font-size-pt($set) {
+    @return _fontset-feature(font-size, $set) * 12 + pt;
+}
+
+@function calc-font-size-rem($set) {
+    @return _fontset-feature(font-size, $set) + rem;
+}
+
+// calc-line-height -----------------------------------------------------------
+@function calc-line-height($set) {
+    @return _fontset-feature(line-height, $set);
+}
+
+
+// Mixins =====================================================================
+
+// Applies the fuctions above to declare font-size and line-height
+// simultaneously. Generates rem with px fallback for IE <= 8, Opera Mini
+@mixin font-scale($family:'georgia', $font-size:'base', $line-height:'default') {
+    font-size: calc-font-size-pt($font-size);     // Generates pt fallback
+    font-size: calc-font-size-rem($font-size);    // Generates rem
+    // Set fallback default.
+    font-family: map-get(map-get($fonts-map, $family), 'fallback');
+
+    // Apply the desired font when it has loaded.
+    .#{$family}-loaded & {
+        font-family: map-get(map-get($fonts-map, $family), 'family');
+    }
+
+    @if $line-height == 'default' {
+        line-height: calc-line-height($font-size);
+    }
+    @else {
+        line-height: $line-height;
+    }
+}

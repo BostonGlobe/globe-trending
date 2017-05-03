@@ -1,0 +1,54 @@
+/**
+ * Module Name: Lead Media.
+ */
+
+$module-name: 'lead-media';
+
+.#{$module-name} {
+	position: relative;
+	// When Big Article has a lead media,
+	// reduce the space between the headline and lead media.
+	margin-bottom: - spacer(px, xx-large);
+	margin-bottom: - spacer(rem, xx-large);
+
+	&__media {
+		width: 100%;
+	}
+
+	&__info {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		position: relative;
+		@include gutter($article-side-padding);
+		padding-top: spacer(px, small);
+		padding-top: spacer(rem, small);
+	}
+
+	&__credit {
+		width: 100%;
+		padding: 0 0 spacer(px, small);
+		color: $dark-gray;
+		text-align: right;
+		font-style: italic;
+		@include font-scale('georgia', x-small);
+	}
+
+	&__caption {
+		color: $dark-gray;
+		@include font-scale('helvetica', x-small);
+	}
+}
+
+
+@include media-query(mid) {
+	.#{$module-name} {
+
+		&__credit {
+			@include span(3 of 12);
+		}
+
+		&__caption {
+			@include span(9 of 12);
+		}
+	}
+}

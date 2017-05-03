@@ -1,0 +1,137 @@
+/**
+ * Module Name: Inline Images.
+ */
+
+$module-name: 'inline-media';
+
+.#{$module-name} {
+	position: relative;
+	margin-top: spacer(px, large);
+	margin-top: spacer(rem, large);
+	margin-bottom: spacer(px, large);
+	margin-bottom: spacer(rem, large);
+	padding: 0;
+
+	// Override the padding on igraphics
+	.rg-container {
+		overflow-x: scroll;
+		padding: 0;
+	}
+
+	&--bleed {
+		// Inline images need to be full-width on mobile.
+		// Add negative pre and post margins to inline images to counteract the container's gutter ($article-side-padding).
+		// @see http://susydocs.oddbird.net/en/latest/toolkit/#squish
+		@include squish(-$article-side-padding/2 of 12);
+	}
+
+	&__video {
+	  position: relative;
+	  height: 0;
+	  padding-bottom: 56.25%; // for 16 x 9 videos
+	  margin-bottom: 2em;
+	  clear: both;
+	  object,
+	  iframe,
+	  embed,
+	  .video-js {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100% !important; //Override javascript-imposed width
+	    height: 100% !important; //Override javascript-imposed height
+	  }
+	}
+
+	&__image {
+		width: 100%;
+	}
+
+	&__info {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		position: relative;
+		@include gutter($article-side-padding);
+		padding-top: spacer(px, small);
+		padding-top: spacer(rem, small);
+	}
+
+	&__credit {
+		width: 100%;
+		padding: 0 0 spacer(px, small);
+		color: $dark-gray;
+		text-align: right;
+		font-style: italic;
+		@include font-scale('georgia', x-small);
+	}
+
+	&__caption {
+		color: $dark-gray;
+		@include font-scale('helvetica', x-small);
+	}
+}
+
+
+@include media-query(mid) {
+	.#{$module-name} {
+		&--wide {
+			// Pull inline images out 1 column wider on each side than text content.
+			@include squish(-1 of 12);
+			margin-top: spacer(px, xx-large);
+			margin-top: spacer(rem, xx-large);
+			margin-bottom: spacer(px, xx-large);
+			margin-bottom: spacer(rem, xx-large);
+		}
+
+		// Unfortunately in methode we can't tell one fragment from another
+		// so we have to target specific embeds here.
+		// Unfortunately those embeds have inline styles, so to override those
+		// we need to use !important (shamefully).
+		twitterwidget,
+		iframe[src*="instagram"] {
+		    width: 80%!important; // Matches susy width of 2 col smaller than container (span 8 of 10).
+		    padding: 0 1.36364%!important; // Matches susy padding.
+		    margin: 0 auto!important;
+		}
+
+		&__info {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		&__credit {
+			@include span(3 of 12);
+			padding-right: 0;
+		}
+
+		&__caption {
+			@include span(9 of 12);
+			padding-left: 0;
+		}
+	}
+}
+
+@include media-query(large) {
+	.#{$module-name} {
+		&--wide {
+			@include squish(-3 of 12);
+		}
+
+		twitterwidget,
+		iframe[src*="instagram"] {
+		    width: 75%!important; // Matches susy width of 2 col smaller than container (span 6 of 8).
+		    padding: 0 1.70455%!important; // Matches susy padding.
+		}
+	}
+}
+
+@include media-query(x-large) {
+	.#{$module-name} {
+
+		twitterwidget,
+		iframe[src*="instagram"] {
+		    width: 66.66667%!important; // Matches susy width of 2 col smaller than container (span 4 of 6).
+		    padding: 0 2.27273%!important; // Matches susy padding.
+		}
+	}
+}

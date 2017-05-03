@@ -1,0 +1,25 @@
+/**
+ * Module Name: Big Article.
+ */
+
+$module-name: 'big-article';
+
+.#{$module-name} {
+	@include container; // Provide a parent context for grid columns width.
+
+	&__module-full {
+		width: 100%;
+		@include gutter($article-side-padding);
+		clear: both;
+	}
+}
+
+@include media-query(mid) {
+	.#{$module-name} {
+		&__module-full {
+			@include span(10 of 12);
+			@include push(1);
+		}
+
+	}
+}

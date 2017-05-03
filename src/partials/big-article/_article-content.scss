@@ -1,0 +1,50 @@
+/**
+ * Module Name: Article Content.
+ */
+
+$module-name: 'article-content';
+
+.#{$module-name} {
+	@include span(full break);
+	@include gutter($article-side-padding);
+
+	&__section-heading {
+    text-align: center;
+		@include font-scale('miller-headline', mid);
+		padding-top: spacer(px, large);
+		padding-top: spacer(rem, large);
+		padding-bottom: spacer(px, small);
+		padding-bottom: spacer(rem, small);
+	}
+
+	p {
+		margin-bottom: spacer(px, large);
+		margin-bottom: spacer(rem, large);
+		@include font-scale();
+	}
+
+	a {
+		@include link-states();
+	}
+}
+
+@include media-query(mid) {
+	.#{$module-name} {
+		@include span(10 of 12);
+		@include push(1);
+	}
+}
+
+@include media-query(large) {
+	.#{$module-name} {
+		@include span(8 of 12);
+		@include push(2);
+	}
+}
+
+@include media-query(x-large) {
+	.#{$module-name} {
+		@include span(6 of 12);
+		@include push(3);
+	}
+}

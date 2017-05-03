@@ -1,0 +1,227 @@
+/**
+ * Module Name: Inline Images.
+ */
+
+$module-name: 'inline-newsletter';
+
+.#{$module-name} {
+  background-color: $x-light-gray;
+  padding: spacer(px, mid) spacer(px, large) spacer(px, large);
+  padding: spacer(rem, mid) spacer(rem, large) spacer(rem, large);
+  margin: spacer(px, large) 0;
+  margin: spacer(rem, large) 0;
+  border-top: 4px solid $light-gray;
+  @include squish(-$article-side-padding/2 of 12);
+
+  &__title {
+    @include font-scale('miller-headline', mid);
+    color: $black;
+    margin-bottom: spacer(px);
+    margin-bottom: spacer(rem);
+  }
+
+  &__description {
+    @include font-scale('benton-sans', x-small);
+    margin-bottom: spacer(px, mid);
+    margin-bottom: spacer(rem, mid);
+  }
+
+  &__input {
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: spacer(px);
+    margin-bottom: spacer(rem);
+    border: 1px solid $light-gray;
+    @include font-scale('benton-sans');
+
+    // Error State for input
+    &--error {
+      min-height: spacer(px, large);
+      min-height: spacer(rem, large);
+      border: 2px solid $error-red;
+    }
+  }
+
+  &__button {
+    height: 50px;
+    width: 100%;
+    padding: spacer(px) spacer(px, large);
+    padding: spacer(px) spacer(rem, large);
+    border: 0 solid;
+    background: $steelblue;
+    color: $white;
+    @include font-scale('benton-sans');
+    transition: background 0.35s cubic-bezier(0.49, 0.37, 0.445, 0.715), opacity 0.35s cubic-bezier(0.49, 0.37, 0.445, 0.715);
+
+    &:hover {
+      background: darken($steelblue, 10%)
+    }
+
+    &:disabled {
+      opacity: .2;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-top: spacer(px, large);
+    padding-top: spacer(rem, large);
+  }
+
+  &__button-container {
+    position: relative;
+  }
+
+  &__spinner {
+    display: none;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    left: 50%;
+    margin-left: -15px;
+    border-left: 4px solid rgba(0, 0, 0, 0.45);
+    border-right: 4px solid rgba(0, 0, 0, 0.45);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.45);
+    border-top: 4px solid rgba(0, 0, 0, 0.85);
+    border-radius: 100%;
+    -webkit-animation: rotation .6s infinite linear;
+    -moz-animation: rotation .6s infinite linear;
+    -o-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+  }
+
+  // Had to be specific to override defaults for input/button
+  & input,
+  & button {
+    border-radius: 3px;
+  }
+
+  &__input-label {
+    position: absolute;
+    display: block;
+    top: 0;
+    text-align: left;
+    @include font-scale('benton-sans-bold', x-small);
+  }
+  &__input--error + &__input-label {
+    // Hide the label immediately following the input when there's an error.
+    display: none;
+  }
+
+  &__error-text {
+    position: absolute;
+    top: 0;
+    color: $error-red;
+    @include font-scale('benton-sans-bold', x-small);
+  }
+
+  &__thanks {
+    padding: spacer(px, large) 0;
+    padding: spacer(rem, large) 0;
+    margin-left: spacer(px, small);
+    margin-left: spacer(rem, small);
+    display: none;
+    text-align: center;
+    @include font-scale('benton-sans');
+  }
+
+  &__link {
+    display: inline-block;
+    @include font-scale('benton-sans-bold');
+  }
+
+  &__network-error {
+    display: none;
+
+    &:before {
+      display: block;
+      content: '';
+      height: 23px;
+      width: 28px;
+      // From CSS Tricks https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+      // Implemented in CSS rather than inline to work with JS module that is used elsewhere.
+      background: url('$configurationURI/Framework/bg-images/png/error-icon.png');
+      background: url('$configurationURI/Framework/bg-images/svg/error-icon.svg'), linear-gradient(transparent, transparent);
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: spacer(px, small) auto spacer(px);
+      margin: spacer(px, small) auto spacer(rem);
+    }
+
+    & p {
+      @include font-scale('benton-sans-bold', x-small);
+      text-align: left;
+    }
+  }
+}
+
+
+@include media-query(mid) {
+  .#{$module-name} {
+    margin: spacer(px, xx-large) 0;
+    margin: spacer(rem, xx-large) 0;
+    padding: spacer(px, mid) spacer(px,large) spacer(px, large);
+    padding: spacer(rem, mid) spacer(px,large) spacer(rem, large);
+    text-align: center;
+
+    &__copy {
+      padding: 0 spacer(px, large);
+      padding: 0 spacer(rem, large);
+    }
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: spacer(rem,large) spacer(px,large) 0;
+      padding: spacer(rem,large) spacer(rem,large) 0;
+    }
+
+    &__input {
+      flex-basis: 50%;
+      flex: 1;
+      margin-right: spacer(px);
+      margin-right: spacer(rem);
+    }
+
+    &__button {
+      min-width: 120px;
+    }
+
+    &__title {
+      margin: spacer(px) 0;
+      margin: spacer(rem) 0;
+    }
+
+    &__description {
+      @include font-scale('benton-sans');
+      margin-bottom: spacer(px);
+      margin-bottom: spacer(rem);
+    }
+
+    &__error-text {
+      text-align: left;
+    }
+
+    &__input-label {
+      left: spacer(px, large);
+      left: spacer(rem, large);
+    }
+
+    &__network-error {
+      padding: 0 spacer(px, large);
+      padding: 0 spacer(rem, large);
+      &:before {
+        float: left;
+        margin-right: spacer(px);
+        margin-right: spacer(rem);
+        margin-bottom: 0;
+      }
+
+      & br {
+        display: none;
+      }
+    }
+  }
+}

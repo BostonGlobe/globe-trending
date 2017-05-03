@@ -1,0 +1,29 @@
+/**
+ * Module Name: Site Header - Big Article Header.
+ */
+
+$module-name: 'site-header';
+
+.#{$module-name} {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $site-header-height;
+	padding: 10px;
+	background-color: $black;
+	overflow: auto;
+	z-index: z-index(attic);
+
+	.bg-logo {
+		float: left;
+		fill: $white;
+		transition-property: fill;
+		transition-duration: 0.2s;
+		transition-timing-function: cubic-bezier(0.49, 0.37, 0.445, 0.715);
+
+		&:hover {
+			fill: darken($white, 20%);
+		}
+	}
+}

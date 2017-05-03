@@ -1,0 +1,96 @@
+// *
+// * Helper Classes
+// *
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+    *zoom: 1;
+  }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Link States
+// * FOR: So link state color declarations
+// * WHY: Breaking out each state on a module takes up a lot of space
+// * USE: @include link-states($black, $lightgrey, $black, $black, false);
+//    - Accepts color values from the color variables from _colors.scss
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin link-states($normal:$steelblue, $hover:$steelblue, $active:false, $visited:false, $underline:true)
+{
+  color: $normal;
+  padding-bottom: 2px;
+  border-bottom: 1px solid $normal;
+  text-decoration: none;
+
+  @if not($underline) {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  @if $visited {
+    &:visited {
+      color: $visited;
+    }
+  }
+  @if $hover {
+    &:hover {
+      color: darken($hover, 10%);
+      @if $underline {
+        border-bottom: 1px solid darken($hover, 10%);
+      }
+    }
+  }
+  @if $active {
+    &:active,
+    &:focus {
+      color: $active;
+    }
+  }
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Media Query
+// * FOR: Writing css specific to particular breakpoints
+// * WHY: Standardizes breakpoint sizes
+// * USE: @include media-query($) {...};
+//    - Acceptable arguments: `tablet`, `desktop`, or an integer
+// * Shout out to http://css-tricks.com/media-queries-sass-3-2-and-codekit/
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin media-query($breakpoint) {
+
+  @if $breakpoint == tablet {
+    @media (min-width: $tablet-breakpoint) { @content; }
+  }
+  @else if $breakpoint == x-large {
+    @media (min-width: $x-large-breakpoint) { @content; }
+  }
+  @else if $breakpoint == large {
+    @media (min-width: $large-breakpoint) { @content; }
+  }
+  @else if $breakpoint == mid {
+    @media (min-width: $mid-breakpoint) { @content; }
+  }
+  @else if $breakpoint == small {
+    @media (min-width: $small-breakpoint) { @content; }
+  }
+  @else if $breakpoint == x-small {
+    @media (min-width: $x-small-breakpoint) { @content; }
+  }
+  @else if round($breakpoint) == $breakpoint {
+    @media (min-width: #{$breakpoint}px) { @content; }
+  }
+
+}
+
+@mixin media-query--retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+  only screen and (-o-min-device-pixel-ratio: 13/10),
+  only screen and (min-resolution: 120dpi) {
+    @content;
+  }
+}

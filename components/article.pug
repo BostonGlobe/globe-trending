@@ -10,14 +10,19 @@ html(lang='en')
     style
       include ./index.css
   body
-    h1 #{article.headline}
-    div !{article.author}, #{article.authorType}
-    div
+    header(class='site-header')
+      div #{'Boston Globe'}
+    figure(class='lead-media')
       img(
         src= article.leadImage.href
         alt= article.leadImage.alt
+        class='lead-media__media'
       )
-    div
+      figcaption #{'Sample caption for the moment'}
+    div(class='article-header')
+      h1(class='article-header__headline') #{article.headline}
+      div(class='article-header__byline') !{article.author}, #{article.authorType}
+    div(class='article-content')
       each val, index in article.content
         if val.content
           p= val.content

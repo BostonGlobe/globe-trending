@@ -1,0 +1,25 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Main Breakpoints
+// * Other breakpoints maybe be used to adjust wonky elements
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$x-large-breakpoint: 1040px;
+$large-breakpoint: 800px;
+$mid-breakpoint: 600px;
+$small-breakpoint: 500px;
+$x-small-breakpoint: 450px;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Element Dimensions
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$site-max-width: 1044px;
+$site-header-height: 40px;
+// Padding to be shared between left and right edges of the article.
+$article-side-padding: 40px;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Font Weights
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;

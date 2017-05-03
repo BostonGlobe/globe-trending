@@ -1,0 +1,21 @@
+/**
+ * Colors
+ */
+
+/** Content colors - Pass accessibility */
+
+$black: #000000;
+
+$dark-gray: #444444;
+
+$white: #FFFFFF;
+
+$steelblue: #127694;
+
+/** Error State - Pass accessibility */
+$error-red: #d90000;
+
+
+/** UI colors - Fail accessibility */
+$light-gray: #dddddd;
+$x-light-gray: #eeeeee;

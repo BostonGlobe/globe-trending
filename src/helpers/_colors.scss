@@ -1,0 +1,33 @@
+/**
+ * Colors
+ */
+
+/** Content colors - Pass accessibility */
+
+$black: #000000;
+
+$x-dark-gray: #333333; // Only used for UI so far
+
+$dark-gray: #444444;
+
+$gray: #777777;
+
+$white: #ffffff;
+
+$steelblue: #127694;
+
+$red: #9B1518;
+
+// This only passes accessibility on a dark background
+$light-green: #9DBA73;
+
+/** Error State - Pass accessibility */
+$error-red: #d90000;
+
+/** UI colors - Fail accessibility */
+$light-gray: #dddddd;
+
+$x-light-gray: #eeeeee;
+
+/** Social colors */
+$facebook-blue: #3b5998;
