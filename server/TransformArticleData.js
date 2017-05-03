@@ -1,5 +1,4 @@
-"use strict";
-module.exports = class TransformData {
+module.exports = class TransformArticleData {
   
   constructor(data) {
     this.data = data;

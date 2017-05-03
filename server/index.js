@@ -1,10 +1,9 @@
-"use strict";
 const express = require('express');
-const TransformData = require('./TransformData.js');
-const data = require('../data/article.json');
-const TransformIndexData = require('./TransformIndexData.js');
-const rawIndexData = require('../data/index.json');
 const request = require('request');
+const rawIndexData = require('../data/index.json');
+const TransformIndexData = require('./TransformIndexData.js');
+const rawArticleData = require('../data/article.json');
+const TransformArticleData = require('./TransformArticleData.js');
 
 const app = express();
 
@@ -25,15 +24,21 @@ app.get('/', (req, res) => {
 
 // render article
 app.get('/article/:section/:year/:month/:day/:slug/:garbage/story', (req, res) => {
+
   let globeURL = 'http://www.bostonglobe.com' + req.url.replace('/article', '') + '.json';
 
-  request({'json':true,'uri':globeURL}, function (error, response, body) {
+  request({'json':true,'uri':globeURL}, (error, response, body) => {
+
       if (!error && response.statusCode == 200) {
-        let articleData = new TransformData(body).transform();
+
+        let articleData = new TransformArticleData(body).transform();
         res.render('article', { article: articleData });
+
       } else {
         // IDK, maybe render a 404 or something?
+
       }
+
   });
   
 });
