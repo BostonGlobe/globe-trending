@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 });
 
 // render index
-app.get('/article/', (req, res) => {
+app.get('/article/*', (req, res) => {
+  console.log(req);
   let articleData = new TransformData(data).transform();
   res.render('article', { article: articleData });
 });
