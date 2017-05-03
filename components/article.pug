@@ -18,8 +18,9 @@ html(lang='en')
         alt= article.leadImage.alt
       )
     div
-    each val, index in {1:'one',2:'two',3:'three'}
-      p= val
+      each val, index in article.content
+        if val.content
+          p= val.content
     div !{article.tagline}
     script
       | let dataString = !{JSON.stringify(article)};
