@@ -11,18 +11,21 @@ html(lang='en')
       include ./index.css
   body
     include ./header.pug
-    figure(class='lead-media')
-      img(
-        src= article.leadImage.href
-        alt= article.leadImage.alt
-        class='lead-media__media'
-      )
-      figcaption(class='lead-media__info')
-        div(class='lead-media__caption') #{article.leadImage.caption}
-        div(class='lead-media__credit') #{article.leadImage.credit}
+    if article.leadImage.type == 'image'
+      figure(class='lead-media')
+        img(
+          src= article.leadImage.href
+          alt= article.leadImage.alt
+          class='lead-media__media'
+        )
+        figcaption(class='lead-media__info')
+          div(class='lead-media__caption') #{article.leadImage.caption}
+          div(class='lead-media__credit') #{article.leadImage.credit}
+
     div(class='article-header')
       h1(class='article-header__headline') #{article.headline}
       div(class='article-header__byline') !{article.author}, #{article.authorType}
+
     div(class='article-content')
       each val, index in article.content
         if val.type == 'p'
@@ -39,6 +42,8 @@ html(lang='en')
         else if val.type == 'subhead'
           h2(class='article-content__section-heading') #{val.content}
       div(class='article-tagline') !{article.tagline}
+
+
     div(class='article-recirc')
       div(class='article-recirc__header')
         h2(class='article-recirc__heading') #{'Continue Reading'}
@@ -49,3 +54,4 @@ html(lang='en')
               a(href=val.href)
                 img(src=val.leadImage.href)
                 h3(class='article-recirc__headline') !{val.headline}
+

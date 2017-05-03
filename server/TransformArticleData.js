@@ -9,7 +9,7 @@ module.exports = class TransformArticleData {
     let recircArray = [];
 
     this.data.recirc.forEach( function (recirc) {
-      if(recirc.lead && recirc.lead.href && recirc.headlines.headline) {
+      if(recirc.lead && recirc.lead.href && recirc.headlines.headline && recirc.lead.type === 'image') {
 
       let recircPath = recirc.href.replace('http://www.bostonglobe.com', '/article').replace('.html', '');
 
@@ -36,7 +36,8 @@ module.exports = class TransformArticleData {
         href: this.data.lead.href, // TODO: Verify that this is an image
         caption: this.data.lead.caption,
         credit: this.data.lead.credit,
-        alt: this.data.lead.alt
+        alt: this.data.lead.alt,
+        type: this.data.lead.type
       },
       content: this.data.content,
       tagline: this.data.tagline,
