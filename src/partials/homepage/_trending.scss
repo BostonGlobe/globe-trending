@@ -1,0 +1,59 @@
+/**
+ * Module Name: Trending Content Chips
+ */
+
+$module-name: 'trending';
+
+.#{$module-name} {
+	margin: 1%;
+	border: 1px solid $light-gray;
+	&__title {
+		padding: 10px;
+		color: $black;
+		@include font-scale('miller-headline');
+	}
+
+	&__heading {
+		@include font-scale('miller-headline', mid);
+		margin: 20px 1% 0;
+	}
+
+	&__heading-description {
+		margin: 0 1% 20px;	
+	}
+
+}
+
+@include media-query(mid) {
+	.#{$module-name} {
+		width: 48%;
+		float: left;
+
+		&-1 {
+			width: 98%;
+		}
+	}
+}
+
+@include media-query(large) {
+	.#{$module-name} {
+		width: 23%;
+		float: left;
+		height: 420px;
+		&-1 {
+			width: 48%;
+		}
+
+		&-section {
+			max-width: 800px;
+			margin: auto;
+		}
+	}	
+}
+
+// @include media-query(x-large) {
+// 	.#{$module-name} {
+// 		@include span(6 of 12);
+// 		@include push(3);
+// 	}
+// }

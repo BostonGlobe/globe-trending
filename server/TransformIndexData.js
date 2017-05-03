@@ -22,6 +22,7 @@ module.exports = class TransformIndexData {
       this.data[i].image = this.data[i].image.replace('//www.bostonglobe.com/', '//c.o0bg.com/');
       this.data[i].path = this.data[i].path.replace('bostonglobe.com', '/article');
       this.data[i].path = this.data[i].path.replace('.html', '');
+      this.data[i].title = this.data[i].title.replace(' - The Boston Globe', '');
 
     }
 
