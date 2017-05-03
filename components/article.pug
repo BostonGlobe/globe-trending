@@ -25,8 +25,17 @@ html(lang='en')
       div(class='article-header__byline') !{article.author}, #{article.authorType}
     div(class='article-content')
       each val, index in article.content
-        if val.content
+        if val.type == 'p'
           p= val.content
+        else if val.type == 'image'
+          figure(class='inline-media inline-media--wide inline-media--bleed')
+            img(
+              src=val.href
+              class='inline-media__image'
+            )
+            figcaption(class='inline-media__info')
+              div(class='inline-media__caption') #{val.caption}
+              div(class='inline-media__credit') #{val.credit}
       div(class='article-tagline') !{article.tagline}
     div(class='article-recirc')
       div(class='article-recirc__header')
