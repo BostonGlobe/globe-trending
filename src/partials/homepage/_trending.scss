@@ -19,6 +19,7 @@ $module-name: 'trending';
 	}
 
 	&__heading-description {
+		@include font-scale('helvetica', small);
 		margin: 0 1% 20px;	
 	}
 
@@ -39,14 +40,25 @@ $module-name: 'trending';
 	.#{$module-name} {
 		width: 23%;
 		float: left;
-		height: 420px;
+		height: 330px;
+		position: relative;
 		&-1 {
 			width: 48%;
+			height: 410px;
+		}
+
+		&-2, &-3 {
+			height: 410px;
 		}
 
 		&-section {
-			max-width: 800px;
+			max-width: 1000px;
 			margin: auto;
+		}
+
+		&__title {
+			position: absolute;
+			bottom: 0px;
 		}
 	}	
 }

@@ -49,16 +49,16 @@ table {
 
 @font-face {
   font-family: "Miller Headline Roman";
-  src: url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot") format("eot");
-  src: url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot?iefix") format("eot"), url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-3.woff") format("woff"), url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-1.ttf") format("truetype"), url("/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-4.svg") format("svg");
+  src: url("//www.bostonglobe.com/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot") format("eot");
+  src: url("//www.bostonglobe.com/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-2.eot?iefix") format("eot"), url("//www.bostonglobe.com/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-3.woff") format("woff"), url("//www.bostonglobe.com/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-1.ttf") format("truetype"), url("//www.bostonglobe.com/font/MillerHeadline/4d418a22-c167-4249-be16-b789d221d18d-4.svg") format("svg");
   font-weight: 600; }
 @font-face {
   font-family: "Benton Sans";
-  src: url("/font/BentonSansRegular/BentonSansRegular.eot") format("eot"), url("/font/BentonSansRegular/BentonSansRegular.eot?iefix") format("eot"), url("/font/BentonSansRegular/BentonSansRegular.woff") format("woff"), url("/font/BentonSansRegular/BentonSansRegular.woff2") format("woff2"), url("/font/BentonSansRegular/BentonSansRegular.ttf") format("truetype"), url("/font/BentonSansRegular/BentonSansRegular.svg") format("svg");
+  src: url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.eot") format("eot"), url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.eot?iefix") format("eot"), url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.woff") format("woff"), url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.woff2") format("woff2"), url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.ttf") format("truetype"), url("//www.bostonglobe.com/font/BentonSansRegular/BentonSansRegular.svg") format("svg");
   font-weight: 400; }
 @font-face {
   font-family: 'Benton Sans Bold';
-  src: url("/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-3.woff") format("woff"), url("/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-1.woff2") format("woff2");
+  src: url("//www.bostonglobe.com/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-3.woff") format("woff"), url("//www.bostonglobe.com/font/BentonSans-Bold/79e52a98-c6b6-4ed0-a074-409e1de09fd6-1.woff2") format("woff2");
   font-weight: 800; }
 html {
   font-size: 95%; }
@@ -959,7 +959,13 @@ pre {
     .miller-headline-loaded .trending__heading {
       font-family: "Miller Headline Roman", Georgia, Times, "Times New Roman", serif; }
   .trending__heading-description {
+    font-size: 11.25pt;
+    font-size: 0.9375rem;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.8;
     margin: 0 1% 20px; }
+    .helvetica-loaded .trending__heading-description {
+      font-family: Helvetica, Arial, sans-serif; }
 
 @media (min-width: 600px) {
   .trending {
@@ -971,11 +977,25 @@ pre {
   .trending {
     width: 23%;
     float: left;
-    height: 420px; }
+    height: 330px;
+    position: relative; }
     .trending-1 {
-      width: 48%; }
+      width: 48%;
+      height: 410px; }
+    .trending-2, .trending-3 {
+      height: 410px; }
+      .trending-2 .trending__heading, .trending-3 .trending__heading {
+        font-size: 31.5pt;
+        font-size: 2.625rem;
+        font-family: Georgia, Times, "Times New Roman", serif;
+        line-height: 1.4; }
+        .miller-headline-loaded .trending-2 .trending__heading, .miller-headline-loaded .trending-3 .trending__heading {
+          font-family: "Miller Headline Roman", Georgia, Times, "Times New Roman", serif; }
     .trending-section {
-      max-width: 800px;
-      margin: auto; } }
+      max-width: 1000px;
+      margin: auto; }
+    .trending__title {
+      position: absolute;
+      bottom: 0px; } }
 
 /*# sourceMappingURL=index.css.map */
