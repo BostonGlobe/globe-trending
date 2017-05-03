@@ -935,4 +935,47 @@ pre {
   .subscription-banner:hover {
     background: #000000; }
 
+/**
+ * Module Name: Trending Content Chips
+ */
+.trending {
+  margin: 1%;
+  border: 1px solid #dddddd; }
+  .trending__title {
+    padding: 10px;
+    color: #000000;
+    font-size: 13.5pt;
+    font-size: 1.125rem;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    line-height: 1.8; }
+    .miller-headline-loaded .trending__title {
+      font-family: "Miller Headline Roman", Georgia, Times, "Times New Roman", serif; }
+  .trending__heading {
+    font-size: 21pt;
+    font-size: 1.75rem;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    line-height: 1.4;
+    margin: 20px 1% 0; }
+    .miller-headline-loaded .trending__heading {
+      font-family: "Miller Headline Roman", Georgia, Times, "Times New Roman", serif; }
+  .trending__heading-description {
+    margin: 0 1% 20px; }
+
+@media (min-width: 600px) {
+  .trending {
+    width: 48%;
+    float: left; }
+    .trending-1 {
+      width: 98%; } }
+@media (min-width: 800px) {
+  .trending {
+    width: 23%;
+    float: left;
+    height: 420px; }
+    .trending-1 {
+      width: 48%; }
+    .trending-section {
+      max-width: 800px;
+      margin: auto; } }
+
 /*# sourceMappingURL=index.css.map */

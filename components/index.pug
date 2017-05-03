@@ -13,17 +13,23 @@ html(lang='en')
 
     include ./header.pug
 
-    h1 Globe Trending
 
-    ul
-      each article in data
-        li(class='trending-' + article.trend)
-          a( href=article.path )
-            img(
-              src= article.image
-              alt= article.title
-            )
-            h2 #{article.title}
+
+    section(class='trending-section')
+      h1(class='trending__heading') Trending on BostonGlobe.com
+      p(class='trending__heading-description') Take a break and read the most popular stories right now.
+      ul
+        each article, index in data
+          li(class='trending trending-' + (index + 1) + ' trending-' + article.trend)
+            article
+              figure
+                a( href=article.path )
+                  img(
+                    src= article.image
+                    alt= article.title
+                    class= 'trending__image'
+                  )
+              h2(class= 'trending__title') #{article.title}
 
     script
       | let dataString = !{JSON.stringify(data)};
