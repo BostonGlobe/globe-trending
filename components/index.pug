@@ -15,7 +15,7 @@ html(lang='en')
     ul
       each article in data
         li 
-          a( href= 'http://' + article.path )
+          a( href=article.path )
             h2 #{article.title}
             img(
               src= article.image
