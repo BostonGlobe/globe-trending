@@ -2,8 +2,8 @@
 const express = require('express');
 const TransformData = require('./TransformData.js');
 const data = require('../data/article.json');
-const https = require('https');
-
+const TransformIndexData = require('./TransformIndexData.js');
+const rawIndexData = require('../data/index.json');
 
 const app = express();
 
@@ -17,19 +17,9 @@ app.set('views', './components');
 // render index
 app.get('/', (req, res) => {
 
+  let indexData = new TransformIndexData(rawIndexData).transform();
+  res.render('index', { data: indexData });
 
-  // articleContent = '';
-  // for (let i = 0; i < articleData.content.length; i++) {
-  //   articleContent += '<' + articleData.content[i].type + '>';
-  //   articleContent += articleData.content[i].content;
-  //   articleContent += '</' + articleData.content[i].type + '>';
-  // }
-
-  // articleData.transformedContent = articleContent;
-
-  // let articleData = new TransformData(data).transform();
-
-  res.render('index', { article: data });
 });
 
 // render index

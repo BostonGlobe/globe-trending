@@ -6,8 +6,22 @@ html(lang='en')
       name='viewport'
       content='width=device-width, initial-scale=1'
     )
-    title= article.headline
+    title='Globe Trending'
     style
       include ./index.css
   body
-    h1 #{article.headline}
+    h1 Globe Trending
+
+    ul
+      each article in data
+        li 
+          a( href= 'http://' + article.path )
+            h2 #{article.title}
+            img(
+              src= article.image
+              alt= article.title
+            )
+
+    script
+      | let dataString = !{JSON.stringify(data)};
+      | console.log(dataString);
