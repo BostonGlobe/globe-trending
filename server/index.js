@@ -14,6 +14,9 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', './components');
 
+// format index data
+let indexData = new TransformIndexData(rawIndexData, rawChartbeatData).transform();
+
 function displayStory(requestInformation, res) {
   let globeURL = 'http://www.bostonglobe.com' + requestInformation.url.replace('/article', '') + '.json';
 
@@ -36,7 +39,6 @@ function displayStory(requestInformation, res) {
 // render index
 app.get('/', (req, res) => {
 
-  let indexData = new TransformIndexData(rawIndexData, rawChartbeatData).transform();
   res.render('index', { data: indexData });
 
 });
