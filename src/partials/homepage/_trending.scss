@@ -1,71 +1,166 @@
-/**
- * Module Name: Trending Content Chips
- */
+// /**
+//  * Module Name: Trending Content Chips
+//  */
 
-$module-name: 'trending';
+.trending {
 
-.#{$module-name} {
-	margin: 1%;
-	border: 1px solid $light-gray;
-	&__title {
-		padding: 10px;
-		color: $black;
-		@include font-scale('miller-headline');
-	}
+	font-family: georgia;
 
-	&__heading {
-		@include font-scale('miller-headline', mid);
-		margin: 20px 1% 0;
-	}
+	max-width: 1096px;
+	margin: auto;
 
-	&__heading-description {
-		@include font-scale('helvetica', small);
-		margin: 0 1% 20px;	
-	}
-
-}
-
-@include media-query(mid) {
-	.#{$module-name} {
-		width: 48%;
-		float: left;
-
-		&-1 {
-			width: 98%;
-		}
-	}
-}
-
-@include media-query(large) {
-	.#{$module-name} {
-		width: 23%;
-		float: left;
-		//height: 330px;
+	.featured {
+		
+		//margin-top: -100px;
+		margin-bottom: 2em;
+		text-align: center;
 		position: relative;
-		&-1 {
-			width: 48%;
-			height: 410px;
+
+		&__info {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			padding: 5em 15% 2em;
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+			text-align: center;
 		}
 
-		&-2, &-3 {
-			height: 410px;
+		&__heading {
+			margin-bottom: .3em;
+			font-family: helvetica;
+			color: #fff;
+			text-transform: uppercase;
+			text-shadow: 0 0 10px #000;
 		}
 
-		&-section {
-			max-width: 1000px;
-			margin: auto;
+		h1 {
+			margin-bottom: .3em;
+			font-size: 2.5em;
+			color: #fff;
+			line-height: 1.2em;
 		}
 
-		&__title {
-			//position: absolute;
-			//bottom: 0px;
+		.popular,
+		.comments,
+		.spacer {
+			font-family: helvetica;
+			font-size: .8em;
+			color: #fff;
+			text-transform: uppercase;
 		}
-	}	
+
+	}
+
 }
 
-// @include media-query(x-large) {
+.trending-list {
+
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	&-header {
+		font-family: helvetica;
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	li {
+		flex: 1 auto;
+		width: 33%;
+		padding-bottom: 1.5em;
+		//margin-bottom: 1em;
+
+	}
+
+	img {
+		height: 200px;
+		width: 100%;
+		margin-bottom: .3em;
+	}
+
+	h1 {
+		font-size: 1em;
+		line-height: 1.2em;
+		color: black;
+	}
+
+	.popular,
+	.comments {
+		font-family: helvetica;
+		font-size: .8em;
+		color: red;
+		text-transform: uppercase;
+	}
+
+}
+
+// $module-name: 'trending';
+
+// .#{$module-name} {
+// 	margin: 1%;
+// 	border: 1px solid $light-gray;
+// 	&__title {
+// 		padding: 10px;
+// 		color: $black;
+// 		@include font-scale('miller-headline');
+// 	}
+
+// 	&__heading {
+// 		@include font-scale('miller-headline', mid);
+// 		margin: 20px 1% 0;
+// 	}
+
+// 	&__heading-description {
+// 		@include font-scale('helvetica', small);
+// 		margin: 0 1% 20px;	
+// 	}
+
+// }
+
+// @include media-query(mid) {
 // 	.#{$module-name} {
-// 		@include span(6 of 12);
-// 		@include push(3);
+// 		width: 48%;
+// 		float: left;
+
+// 		&-1 {
+// 			width: 98%;
+// 		}
 // 	}
 // }
+
+// @include media-query(large) {
+// 	.#{$module-name} {
+// 		width: 23%;
+// 		float: left;
+// 		//height: 330px;
+// 		position: relative;
+// 		&-1 {
+// 			width: 48%;
+// 			height: 410px;
+// 		}
+
+// 		&-2, &-3 {
+// 			height: 410px;
+// 		}
+
+// 		&-section {
+// 			max-width: 1000px;
+// 			margin: auto;
+// 		}
+
+// 		&__title {
+// 			//position: absolute;
+// 			//bottom: 0px;
+// 		}
+// 	}	
+// }
+
+// // @include media-query(x-large) {
+// // 	.#{$module-name} {
+// // 		@include span(6 of 12);
+// // 		@include push(3);
+// // 	}
+// // }

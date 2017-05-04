@@ -10,14 +10,13 @@ $module-name: 'site-header';
 	left: 0;
 	right: 0;
 	height: $site-header-height;
-	padding: 10px;
+	padding: 10px 30px;
 	background-color: $black;
-	overflow: auto;
+	//overflow: auto;
 	z-index: z-index(attic);
-	text-align: center;
 
 	.bg-logo {
-		// float: left;
+		//float: left;
 		fill: $white;
 		transition-property: fill;
 		transition-duration: 0.2s;
