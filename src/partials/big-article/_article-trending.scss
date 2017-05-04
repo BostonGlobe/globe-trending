@@ -8,14 +8,47 @@ $module-name: 'article-trending';
 	@include span(full break);
 	@include gutter($article-side-padding);
 	@include font-scale('helvetica', mid);
+	padding: 20px 15px 10px;
 
-	&__section-heading {
-    text-align: center;
-		
-		padding-top: spacer(px, large);
-		padding-top: spacer(rem, large);
-		padding-bottom: spacer(px, small);
-		padding-bottom: spacer(rem, small);
+	&__rank {
+		float: left;
+		@include font-scale('helvetica', large);
+		font-weight: bold;
+		padding-right: 10px;
+		line-height: 1;
+		margin-bottom: 20px;
+	}
+
+	&__up {
+		&:before {
+			content: '↑';
+			color: #417505;
+			display: inline-block;
+			margin-right: 5px;
+			font-weight: bold;
+		}
+	}
+
+	&__headline {
+		font-weight: initial;
+		@include font-scale('helvetica');
+		line-height: 20px;
+	}
+
+	&__popular-on {
+		display: inline-block;
+	}
+
+	&__stats {
+		text-transform: uppercase;
+		color: #777;
+		@include font-scale('helvetica', x-small);
+	}
+	&__histogram {
+		float: right;
+		padding-left: 20px;
+		height: 41px;
+		border-left: 1px solid #777;
 	}
 
 	p {
@@ -33,6 +66,14 @@ $module-name: 'article-trending';
 	.#{$module-name} {
 		@include span(10 of 12);
 		@include push(1);
+		&__headline {
+			line-height: 20px;
+		}
+		&__popular-on:before {
+			content: '|';
+			margin: 0 5px;
+			display: inline-block;
+		}
 	}
 }
 
@@ -45,7 +86,7 @@ $module-name: 'article-trending';
 
 @include media-query(x-large) {
 	.#{$module-name} {
-		@include span(6 of 12);
-		@include push(3);
+		@include span(8 of 12);
+		@include push(2);
 	}
 }

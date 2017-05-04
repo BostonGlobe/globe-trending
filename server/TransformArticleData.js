@@ -42,7 +42,7 @@ module.exports = class TransformArticleData {
 
         // Normalize the concurrent visitor data out of 100%:
         chartBeatNode.chartbeat.visit.hist.forEach(function(value) {
-          // Assume that the graph will never be more than 40px
+          // Assume that the graph will never be more than 50px
           this.normalizedHistogram.push(Math.round(value/chartBeatNode.concurrentHistogramMax*40));
         }.bind(this));
       }
