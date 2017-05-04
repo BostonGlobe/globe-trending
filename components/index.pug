@@ -37,6 +37,13 @@ html(lang='en')
               if article.hotRef
                 div(class='trending__popular-on') Popular #{article.hotRef}
 
+              if article.comments
+                div(class='trending__comment-tounc') #{article.comments} Comments
+
+              ul
+                each value, ref in article.refs
+                  li= ref + ': ' + value
+
     script
       | let dataString = !{JSON.stringify(data)};
       | console.log('bg data:', dataString);

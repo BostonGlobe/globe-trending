@@ -2,12 +2,15 @@ const _ = require('lodash');
 
 module.exports = class TransformIndexData {
   
-  constructor(data, chartbeatData) {
+  constructor(data, chartbeatData, commentData) {
     this.data = data;
     this.chartbeatData = chartbeatData.pages;
+    this.commentData = commentData.page;
   }
 
   transform() {
+
+    var that = this;
 
     // loop over bg formatted chartbeat data
     for ( var i = 0; i < this.data.length; i++ ) {
@@ -16,6 +19,7 @@ module.exports = class TransformIndexData {
       this.data[i].refs = { fb: 0, tw: 0, g: 0 };
 
       this.data[i].hotRef = null;
+      this.data[i].comments = null;
 
       // loop over raw chartbeat data
       for ( var j = 0; j < this.chartbeatData.length; j++ ) {
@@ -62,6 +66,13 @@ module.exports = class TransformIndexData {
         }
 
       }
+
+      // loop over raw comment data
+      _.each( this.commentData, function( article, key ) {
+        if ( article.path === that.data[i].path ) {
+          that.data[i].comments = article.comments;
+        }
+      });
 
       // re-format some of the pre-formatted data
       this.data[i].image = this.data[i].image.replace('//www.bostonglobe.com/', '//c.o0bg.com/');
