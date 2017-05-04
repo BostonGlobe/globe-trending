@@ -54,4 +54,7 @@ html(lang='en')
               a(href=val.href)
                 img(src=val.leadImage.href)
                 h3(class='article-recirc__headline') !{val.headline}
+    script
+      | let dataString = !{JSON.stringify(article)};
+      | console.log('article data:', dataString);
 
