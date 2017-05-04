@@ -40,6 +40,7 @@ html(lang='en')
               if article.comments
                 div(class='trending__comment-tounc') #{article.comments} Comments
 
+    include ./footer.pug
 
     script
       | let dataString = !{JSON.stringify(data)};
