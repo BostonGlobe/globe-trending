@@ -11,13 +11,21 @@ html(lang='en')
       include ./index.css
   body
     include ./header.pug
-    if article.leadImage.type == 'image'
-      if article.chartBeat
-        div(class='article-header')
-          h1(class='article-header__headline') #{'#'}#{article.chartBeat.rank} #{'most popular article on BostonGlobe.com'}
-          if article.chartBeat.trend === 'up'
-            h2(class='article-header__headline') #{'Article Trending Up'}
-        
+    if article.chartBeat
+      div(class='article-trending')
+        div(class='article-trending__rank') #{'#'}#{article.chartBeat.rank}
+        div(class='article-trending__histogram')
+          each histogramValue in article.normalizedHistogram
+            div(
+              style='display:inline-block;background:#777;margin-right:1px;width:5px;height:' + ( histogramValue + 1 )  + 'px;'
+            )
+        h1(class='article-trending__headline') #{'Most popular article on BostonGlobe.com'}
+        if article.chartBeat.trend === 'up'
+          div(class='article-trending__stats') 
+            span(class='article-trending__up') #{'Article Trending Up'}
+            if article.chartBeat.hotRef
+              span(class='article-trending__popular-on') Popular on #{article.chartBeat.hotRef}
+    if article.leadImage.type == 'image'  
       figure(class='lead-media')
         img(
           src= article.leadImage.href
@@ -31,6 +39,7 @@ html(lang='en')
     div(class='article-header')
       h1(class='article-header__headline') #{article.headline}
       div(class='article-header__byline') !{article.author}, #{article.authorType}
+      
 
     div(class='article-content')
       each val, index in article.content
@@ -58,11 +67,10 @@ html(lang='en')
           if (index<3)
             li(class='article-recirc__item')
               a(href=val.href)
-                img(src=val.leadImage.href)
+                img(
+                  src=val.leadImage.href,
+                  class='article-recirc__image'
+                )
                 h3(class='article-recirc__headline') !{val.headline}
 
     include ./footer.pug
-    script
-      | let dataString = !{JSON.stringify(article)};
-      | console.log('article data:', dataString);
-

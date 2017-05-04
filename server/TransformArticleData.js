@@ -33,6 +33,23 @@ module.exports = class TransformArticleData {
         }
       }.bind(this));
 
+      this.normalizedHistogram = false;
+      if(chartBeatNode) {
+        this.normalizedHistogram = [];
+        chartBeatNode.concurrentHistogramScaled = [];
+        
+        if (chartBeatNode.chartbeat) {
+          chartBeatNode.concurrentHistogramMax = Math.max.apply(null, chartBeatNode.chartbeat.visit.hist);
+
+          // Normalize the concurrent visitor data out of 100%:
+          chartBeatNode.chartbeat.visit.hist.forEach(function(value) {
+            // Assume that the graph will never be more than 50px
+            this.normalizedHistogram.push(Math.round(value/chartBeatNode.concurrentHistogramMax*40));
+          }.bind(this));
+        }
+        
+      }
+
       
     }.bind(this) );
     
@@ -52,7 +69,8 @@ module.exports = class TransformArticleData {
       tagline: this.data.tagline,
       chartBeat: chartBeatNode,
       loid: this.data.loid,
-      recirc: recircArray
+      recirc: recircArray,
+      normalizedHistogram: this.normalizedHistogram
     };
   }
 

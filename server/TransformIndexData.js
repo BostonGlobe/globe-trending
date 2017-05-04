@@ -90,7 +90,7 @@ module.exports = class TransformIndexData {
 
       // re-format some of the pre-formatted data
       this.data[i].image = this.data[i].image.replace('//www.bostonglobe.com/', '//c.o0bg.com/');
-      this.data[i].image = this.data[i].image.replace('image_585w', 'image_1200w');
+      this.data[i].image = this.data[i].image.replace('image_585w', 'image_375x250');
       this.data[i].path = this.data[i].path.replace('bostonglobe.com', '/article');
       this.data[i].path = this.data[i].path.replace('.html', '');
       this.data[i].title = this.data[i].title.replace(' - The Boston Globe', '');
