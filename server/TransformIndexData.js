@@ -50,17 +50,31 @@ module.exports = class TransformIndexData {
 
           }
 
-          // set the hot referrer 
-          if ( this.data[i].refs.fb > 20 ) {
-            this.data[i].hotRef = 'on Facebook';
-          }
+          // set the hot referrer
 
-          if ( this.data[i].refs.tw > 20 ) {
-            this.data[i].hotRef = 'on Twitter';
-          }
+          // get the highest referrer
+          var hotRef = _.maxBy(_.keys( this.data[i].refs ), function (o) { 
+            return that.data[i].refs[o]; 
+          });
 
-          if ( this.data[i].refs.tw > 20 ) {
-            this.data[i].hotRef = 'Google search';
+          // get the count of the highest referrer
+          var hotRefCount = that.data[i].refs[hotRef];
+
+          // set the hotRef text if the highest referrer is over 15
+          if ( hotRefCount > 15 ) {
+
+            if ( hotRef === 'fb' ) {
+              this.data[i].hotRef = 'on Facebook';
+            }
+
+            if ( hotRef === 'tw' ) {
+              this.data[i].hotRef = 'on Twitter';
+            }
+
+            if ( hotRef === 'g' ) {
+              this.data[i].hotRef = 'Google Search';
+            }
+
           }
 
         }

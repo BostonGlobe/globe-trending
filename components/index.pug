@@ -40,9 +40,6 @@ html(lang='en')
               if article.comments
                 div(class='trending__comment-tounc') #{article.comments} Comments
 
-              ul
-                each value, ref in article.refs
-                  li= ref + ': ' + value
 
     script
       | let dataString = !{JSON.stringify(data)};
