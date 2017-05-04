@@ -1,6 +1,6 @@
 *.DS_Store
 *.sass-cache
+/data
 /dist
 /node_modules
-/data/chartbeat.json
 npm-debug.log
