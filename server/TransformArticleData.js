@@ -38,13 +38,16 @@ module.exports = class TransformArticleData {
         this.normalizedHistogram = [];
         chartBeatNode.concurrentHistogramScaled = [];
         
-        chartBeatNode.concurrentHistogramMax = Math.max.apply(null, chartBeatNode.chartbeat.visit.hist);
+        if (chartBeatNode.chartbeat) {
+          chartBeatNode.concurrentHistogramMax = Math.max.apply(null, chartBeatNode.chartbeat.visit.hist);
 
-        // Normalize the concurrent visitor data out of 100%:
-        chartBeatNode.chartbeat.visit.hist.forEach(function(value) {
-          // Assume that the graph will never be more than 50px
-          this.normalizedHistogram.push(Math.round(value/chartBeatNode.concurrentHistogramMax*40));
-        }.bind(this));
+          // Normalize the concurrent visitor data out of 100%:
+          chartBeatNode.chartbeat.visit.hist.forEach(function(value) {
+            // Assume that the graph will never be more than 50px
+            this.normalizedHistogram.push(Math.round(value/chartBeatNode.concurrentHistogramMax*40));
+          }.bind(this));
+        }
+        
       }
 
       
