@@ -25,7 +25,7 @@ function displayStory(requestInformation, res) {
 
       if (!error && response.statusCode == 200) {
 
-        let articleData = new TransformArticleData(body).transform();
+        let articleData = new TransformArticleData(body, indexData).transform();
         res.render('article', { article: articleData });
 
       } else {

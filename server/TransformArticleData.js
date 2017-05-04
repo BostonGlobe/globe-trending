@@ -1,13 +1,14 @@
 module.exports = class TransformArticleData {
   
-  constructor(data) {
+  constructor(data, rawChartbeatData) {
     this.data = data;
+    this.rawChartbeatData = rawChartbeatData;
   }
 
   transform() {
 
     let recircArray = [];
-
+    let chartBeatNode = null;
     this.data.recirc.forEach( function (recirc) {
       if(recirc.lead && recirc.lead.href && recirc.headlines.headline && recirc.lead.type === 'image') {
 
@@ -25,7 +26,15 @@ module.exports = class TransformArticleData {
       }
 
       
-    } );
+      this.rawChartbeatData.forEach(function(popularArticle, index) {
+        if (popularArticle.loid === this.data.loid) {
+          chartBeatNode = popularArticle;
+          chartBeatNode.rank = index+1;
+        }
+      }.bind(this));
+
+      
+    }.bind(this) );
     
     
     return {
@@ -41,6 +50,8 @@ module.exports = class TransformArticleData {
       },
       content: this.data.content,
       tagline: this.data.tagline,
+      chartBeat: chartBeatNode,
+      loid: this.data.loid,
       recirc: recircArray
     };
   }
