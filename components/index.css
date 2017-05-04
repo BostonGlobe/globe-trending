@@ -376,6 +376,80 @@ pre {
     padding-left: 1.13636%;
     padding-right: 1.13636%; } }
 /**
+ * Module Name: Trending bar at top of article
+ */
+.article-trending {
+  clear: both;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 1.13636%;
+  padding-right: 1.13636%;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 21pt;
+  font-size: 1.75rem;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.4; }
+  .helvetica-loaded .article-trending {
+    font-family: Helvetica, Arial, sans-serif; }
+  .article-trending__section-heading {
+    text-align: center;
+    padding-top: 20px;
+    padding-top: 1.25rem;
+    padding-bottom: 5px;
+    padding-bottom: 0.3125rem; }
+  .article-trending p {
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+    font-size: 13.5pt;
+    font-size: 1.125rem;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    line-height: 1.8; }
+    .georgia-loaded .article-trending p {
+      font-family: Georgia, Times, "Times New Roman", serif; }
+  .article-trending a {
+    color: #127694;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #127694;
+    text-decoration: none; }
+    .article-trending a:hover {
+      color: #0c5267;
+      border-bottom: 1px solid #0c5267; }
+
+@media (min-width: 600px) {
+  .article-trending {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 83.33333%;
+    float: left;
+    padding-left: 1.13636%;
+    padding-right: 1.13636%;
+    margin-left: 8.33333%; } }
+@media (min-width: 800px) {
+  .article-trending {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 66.66667%;
+    float: left;
+    padding-left: 1.13636%;
+    padding-right: 1.13636%;
+    margin-left: 16.66667%; } }
+@media (min-width: 1040px) {
+  .article-trending {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 1.13636%;
+    padding-right: 1.13636%;
+    margin-left: 25%; } }
+/**
  * Module Name: Article Content
  */
 .article-header {

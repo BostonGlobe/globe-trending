@@ -13,10 +13,15 @@ html(lang='en')
     include ./header.pug
     if article.leadImage.type == 'image'
       if article.chartBeat
-        div(class='article-header')
-          h1(class='article-header__headline') #{'#'}#{article.chartBeat.rank} #{'most popular article on BostonGlobe.com'}
+        div(class='article-trending')
+          h1(class='article-trending__headline') #{'#'}#{article.chartBeat.rank} #{'most popular article on BostonGlobe.com'}
           if article.chartBeat.trend === 'up'
-            h2(class='article-header__headline') #{'Article Trending Up'}
+            h2(class='article-trending__headline') #{'↑ Article Trending Up'}
+            div(class='article-trending__byline')
+            each histogramValue in article.normalizedHistogram
+              div(
+                style='display:inline-block;background:#777;width:5px;height:' + ( histogramValue + 1 )  + 'px;'
+              )
         
       figure(class='lead-media')
         img(
@@ -31,6 +36,7 @@ html(lang='en')
     div(class='article-header')
       h1(class='article-header__headline') #{article.headline}
       div(class='article-header__byline') !{article.author}, #{article.authorType}
+      
 
     div(class='article-content')
       each val, index in article.content
