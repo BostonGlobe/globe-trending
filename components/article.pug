@@ -67,7 +67,10 @@ html(lang='en')
           if (index<3)
             li(class='article-recirc__item')
               a(href=val.href)
-                img(src=val.leadImage.href)
+                img(
+                  src=val.leadImage.href,
+                  class='article-recirc__image'
+                )
                 h3(class='article-recirc__headline') !{val.headline}
 
     include ./footer.pug
