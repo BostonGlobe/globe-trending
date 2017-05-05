@@ -30,3 +30,4 @@ This will start the node server and the webpack watch loop for styles/js. Curren
 * Offline browsing
 * Taxonomy specific data
 * Get server to send transformed JSON data instead of HTML
+* Automate the data ingestion
