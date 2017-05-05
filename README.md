@@ -9,6 +9,12 @@ Displays Most Popular Globe content, along with basic stats on popular referrers
 This will start the node server and the webpack watch loop for styles/js. Currently there is no JS for the app.
 3. Get a sample of data to put into the `/data/` directory. See either Eddie or Connor for this.
 
+## Things this thing is built with:
+- Node/Express - Server
+- Pug - Templating
+- Webpack SASS (Because #hackday)
+
+
 ---
 
 ## Screenshots
