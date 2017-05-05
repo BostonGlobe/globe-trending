@@ -83,7 +83,7 @@ module.exports = class TransformIndexData {
 
       // loop over raw comment data
       _.each( this.commentData, function( article, key ) {
-        if ( article.path.replace('www.', '') === that.data[i].path ) {
+        if ( article.path.replace('http://www.', '') === that.data[i].path ) {
           that.data[i].comments = article.comments;
         }
       });
