@@ -73,7 +73,6 @@
 	}
 
 	img {
-		height: 250px;
 		width: 100%;
 	}
 
@@ -159,9 +158,10 @@
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
+			padding: 0 10px;
 
 			&-header {
-				padding: 0;
+				padding: 0 10px;
 			}
 
 			li {
@@ -181,6 +181,7 @@
 	.trending {
 
 		.trending-list {
+			padding: 0 10px;
 			li {
 				width: 32%;
 				padding-bottom: 1.5em;
@@ -188,75 +189,25 @@
 				//margin-bottom: 1em;
 				border: 1px solid #ccc
 			}
+
+			&-header {
+				padding: 10px;
+			}
 		}
 
 	}
 }
 
-// $module-name: 'trending';
 
-// .#{$module-name} {
-// 	margin: 1%;
-// 	border: 1px solid $light-gray;
-// 	&__title {
-// 		padding: 10px;
-// 		color: $black;
-// 		@include font-scale('miller-headline');
-// 	}
+@include media-query(1000) {
+	.trending {
 
-// 	&__heading {
-// 		@include font-scale('miller-headline', mid);
-// 		margin: 20px 1% 0;
-// 	}
+		.trending-list {
+			padding: 0;
+			&-header {
+				padding: 0;
+			}
+		}
 
-// 	&__heading-description {
-// 		@include font-scale('helvetica', small);
-// 		margin: 0 1% 20px;	
-// 	}
-
-// }
-
-// @include media-query(mid) {
-// 	.#{$module-name} {
-// 		width: 48%;
-// 		float: left;
-
-// 		&-1 {
-// 			width: 98%;
-// 		}
-// 	}
-// }
-
-// @include media-query(large) {
-// 	.#{$module-name} {
-// 		width: 23%;
-// 		float: left;
-// 		//height: 330px;
-// 		position: relative;
-// 		&-1 {
-// 			width: 48%;
-// 			height: 410px;
-// 		}
-
-// 		&-2, &-3 {
-// 			height: 410px;
-// 		}
-
-// 		&-section {
-// 			max-width: 1000px;
-// 			margin: auto;
-// 		}
-
-// 		&__title {
-// 			//position: absolute;
-// 			//bottom: 0px;
-// 		}
-// 	}	
-// }
-
-// // @include media-query(x-large) {
-// // 	.#{$module-name} {
-// // 		@include span(6 of 12);
-// // 		@include push(3);
-// // 	}
-// // }
+	}
+}
