@@ -14,6 +14,7 @@ This will start the node server and the webpack watch loop for styles/js. Curren
 ## Screenshots
 ### Homepage
 <img width="889" alt="screen shot 2017-05-05 at 3 34 23 pm" src="https://cloud.githubusercontent.com/assets/4061265/25761325/7bc9b2b8-31a8-11e7-8887-c66b3cc3dd27.png">
+
 ### Article
 <img width="412" alt="screen shot 2017-05-05 at 3 35 08 pm" src="https://cloud.githubusercontent.com/assets/4061265/25761331/8401a1ac-31a8-11e7-97c6-6066dd342919.png">
 
