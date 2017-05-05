@@ -37,19 +37,22 @@ html(lang='en')
 
       h1.trending-list-header Other Trending Stories
       ul.trending-list
-        - for ( var i = 1; i < data.length; i++ ) {
+        - for ( var i = 1; i < data.length - 1; i++ ) {
           li.trending__list-item
             article
               a( href= data[i].path )
                 img(
                   src= data[i].image
                   alt= data[i].title
-                )     
-                h1 #{data[i].title}
-                if data[i].hotRef
-                  span.popular Popular #{data[i].hotRef}
-                if data[i].comments
-                  div.comments #{data[i].comments} Comments
+                )
+                div.info
+                  h1 #{data[i].title}
+                  if data[i].hotRef
+                    span.popular Popular #{data[i].hotRef}
+                  if data[i].hotRef && data[i].comments
+                    span.spacer &nbsp; ● &nbsp;
+                  if data[i].comments
+                    span.comments #{data[i].comments} Comments
 
         - }
 

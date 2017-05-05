@@ -12,8 +12,9 @@ $module-name: 'site-header';
 	height: $site-header-height;
 	padding: 10px 30px;
 	background-color: $black;
-	//overflow: auto;
+	overflow: auto;
 	z-index: z-index(attic);
+	text-align: center;
 
 	.bg-logo {
 		//float: left;

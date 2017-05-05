@@ -10,8 +10,7 @@
 	margin: auto;
 
 	.featured {
-		
-		//margin-top: -100px;
+
 		margin-bottom: 2em;
 		text-align: center;
 		position: relative;
@@ -20,7 +19,7 @@
 			position: absolute;
 			bottom: 0;
 			width: 100%;
-			padding: 5em 15% 2em;
+			padding: 5em 15px 2em;
 			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 			text-align: center;
 		}
@@ -31,11 +30,17 @@
 			color: #fff;
 			text-transform: uppercase;
 			text-shadow: 0 0 10px #000;
+			font-size: .8em;
+		}
+
+		img {
+			max-height: 515px;
+			width: 100%;
 		}
 
 		h1 {
 			margin-bottom: .3em;
-			font-size: 2.5em;
+			font-size: 1.2em;
 			color: #fff;
 			line-height: 1.2em;
 		}
@@ -43,6 +48,7 @@
 		.popular,
 		.comments,
 		.spacer {
+			display: inline-block;
 			font-family: helvetica;
 			font-size: .8em;
 			color: #fff;
@@ -55,30 +61,24 @@
 
 .trending-list {
 
-	display: flex;
-	flex-flow: row wrap;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: space-between;
-
 	&-header {
 		font-family: helvetica;
 		font-size: 1.5em;
-		margin-bottom: 1em;
+		margin-bottom: .5em;
+		padding: 0 15px;
 	}
 
 	li {
-		flex: 1 auto;
-		width: 33%;
-		padding-bottom: 1.5em;
-		//margin-bottom: 1em;
-
+		margin-bottom: 1.5em;
 	}
 
 	img {
 		height: 250px;
 		width: 100%;
-		margin-bottom: .3em;
+	}
+
+	.info {
+		padding: .3em 15px 0 15px;
 	}
 
 	h1 {
@@ -88,7 +88,9 @@
 	}
 
 	.popular,
-	.comments {
+	.comments,
+	.spacer {
+		display: inline-block;
 		margin-top: 10px;
 		font-family: helvetica;
 		font-size: .8em;
@@ -96,6 +98,83 @@
 		text-transform: uppercase;
 	}
 
+}
+
+@include media-query(600) {
+
+	.trending {
+
+		.featured {
+			
+			margin-top: 20px;
+			margin-bottom: 2em;
+			text-align: center;
+			position: relative;
+
+			&__info {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				padding: 5em 15% 2em;
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+				text-align: center;
+			}
+
+			&__heading {
+				margin-bottom: .3em;
+				font-family: helvetica;
+				color: #fff;
+				text-transform: uppercase;
+				text-shadow: 0 0 10px #000;
+				font-size: 1em;
+			}
+
+			img {
+				max-height: 515px;
+				width: 100%;
+			}
+
+			h1 {
+				margin-bottom: .3em;
+				font-size: 2.5em;
+				color: #fff;
+				line-height: 1.2em;
+			}
+
+			.popular,
+			.comments,
+			.spacer {
+				display: inline-block;
+				font-family: helvetica;
+				font-size: .8em;
+				color: #fff;
+				text-transform: uppercase;
+			}
+
+		}
+
+
+
+		.trending-list {
+
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+
+			&-header {
+				padding: 0;
+			}
+
+			li {
+				width: 32%;
+				padding-bottom: 1.5em;
+				margin-bottom: 1.5em;
+				//margin-bottom: 1em;
+				border: 1px solid #ccc
+			}
+		}
+
+	}
 }
 
 // $module-name: 'trending';
