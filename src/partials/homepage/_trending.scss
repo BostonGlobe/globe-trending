@@ -100,8 +100,7 @@
 
 }
 
-@include media-query(600) {
-
+@include media-query(481) {
 	.trending {
 
 		.featured {
@@ -165,6 +164,23 @@
 				padding: 0;
 			}
 
+			li {
+				width: 49%;
+				padding-bottom: 1.5em;
+				margin-bottom: 1.5em;
+				//margin-bottom: 1em;
+				border: 1px solid #ccc
+			}
+		}
+
+	}
+}
+
+
+@include media-query(768) {
+	.trending {
+
+		.trending-list {
 			li {
 				width: 32%;
 				padding-bottom: 1.5em;
