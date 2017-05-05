@@ -34,15 +34,14 @@
 		}
 
 		img {
-			max-height: 515px;
 			width: 100%;
 		}
 
 		h1 {
-			margin-bottom: .3em;
-			font-size: 1.2em;
+			margin-bottom: 2em;
+			font-size: 1.8em;
 			color: #fff;
-			line-height: 1.2em;
+			line-height: 1.1em;
 		}
 
 		.popular,
@@ -81,8 +80,8 @@
 	}
 
 	h1 {
-		font-size: 1em;
-		line-height: 1.2em;
+		font-size: 1.4em;
+		line-height: 1.8em;
 		color: black;
 	}
 
@@ -103,8 +102,6 @@
 	.trending {
 
 		.featured {
-			
-			margin-top: 20px;
 			margin-bottom: 2em;
 			text-align: center;
 			position: relative;
@@ -171,6 +168,11 @@
 				//margin-bottom: 1em;
 				border: 1px solid #ccc
 			}
+
+			h1 {
+				font-size: 1em;
+				line-height: 1.2em;
+			}
 		}
 
 	}
@@ -199,8 +201,9 @@
 }
 
 
-@include media-query(1000) {
+@include media-query(1100) {
 	.trending {
+		margin-top: 20px;
 
 		.trending-list {
 			padding: 0;
