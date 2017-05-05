@@ -38,7 +38,7 @@
 		}
 
 		h1 {
-			margin-bottom: 2em;
+			margin-bottom: .5em;
 			font-size: 1.8em;
 			color: #fff;
 			line-height: 1.1em;
@@ -81,7 +81,7 @@
 
 	h1 {
 		font-size: 1.4em;
-		line-height: 1.8em;
+		line-height: 1.2em;
 		color: black;
 	}
 
@@ -194,6 +194,10 @@
 
 			&-header {
 				padding: 10px;
+			}
+
+			h1 {
+				line-height: 1.6em;
 			}
 		}
 
